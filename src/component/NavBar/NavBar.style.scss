@@ -1,0 +1,12 @@
+.nav-bar {
+  flex: 1;
+  flex-direction: row;
+  display: flex;
+  height: 80px;
+  margin: 0 101px;
+
+  &-logo {
+    flex: 0 0 auto;
+    align-self: center;
+  }
+}

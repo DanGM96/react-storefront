@@ -1,0 +1,13 @@
+@import "src/style/variables.scss";
+
+.cart-selector {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+
+  color: $c-cart;
+
+  &--selected {
+    color: $c-primary;
+  }
+}

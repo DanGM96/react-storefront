@@ -1,0 +1,24 @@
+@import "src/style/variables.scss";
+
+.currency-selector {
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+
+  cursor: pointer;
+
+  color: $c-text;
+  font-size: 18px;
+  font-weight: 500;
+
+  &__arrow {
+    margin-left: 10px;
+    transform: translateY(3px);
+  }
+
+  &:hover {
+    color: $c-primary;
+  }
+}

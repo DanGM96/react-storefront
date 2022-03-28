@@ -1,0 +1,39 @@
+@import "src/style/variables.scss";
+
+.category {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  height: 100%;
+  cursor: pointer;
+
+  text-transform: uppercase;
+  font-size: 16px;
+  color: $c-text;
+
+  background-image: linear-gradient($c-primary, $c-primary);
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.2s;
+
+  &--selected {
+    color: $c-primary;
+    font-weight: 600;
+
+    background-size: 100% 2px;
+  }
+
+  /* Used to prevent the elements from shifting on font-weight: 600 */
+  &::after {
+    content: attr(title) ".";
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+    font-weight: 600;
+  }
+}
