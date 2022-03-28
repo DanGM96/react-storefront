@@ -1,10 +1,10 @@
-import React from "react";
+import { PureComponent } from "react";
 
 import Category from "../Category/Category.component";
 
 import "./Categories.style.scss";
 
-export class Categories extends React.Component {
+export class Categories extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

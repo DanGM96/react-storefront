@@ -1,21 +1,21 @@
-import React from "react";
+import { PureComponent } from "react";
 
 import Categories from "../Categories/Categories.component";
 import Selectors from "../Selectors/Selectors.component";
 import { ReactComponent as Logo } from "../../asset/icons/logo.svg";
 
-import "./NavBar.style.scss";
+import "./NavigationBar.style.scss";
 
-export class NavBarContainer extends React.Component {
+export class NavigationBar extends PureComponent {
   render() {
     return (
-      <div className="nav-bar">
+      <div className="navigation-bar">
         <Categories />
-        <Logo className="nav-bar-logo" />
+        <Logo className="navigation-bar-logo" />
         <Selectors />
       </div>
     );
   }
 }
 
-export default NavBarContainer;
+export default NavigationBar;

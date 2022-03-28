@@ -1,4 +1,4 @@
-import React from "react";
+import { PureComponent } from "react";
 import { Link } from "react-router-dom";
 
 import history from "../../util/browserHistory";
@@ -6,7 +6,7 @@ import history from "../../util/browserHistory";
 import { classNames } from "../../util/functions";
 import "./Category.style.scss";
 
-export class Category extends React.Component {
+export class Category extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

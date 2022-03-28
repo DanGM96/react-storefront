@@ -1,9 +1,9 @@
-import React from "react";
+import { PureComponent } from "react";
 import { Router } from "react-router-dom";
 
 import history from "../../util/browserHistory";
 
-export class AppRouter extends React.Component {
+export class AppRouter extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

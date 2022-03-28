@@ -1,4 +1,4 @@
-import React from "react";
+import { PureComponent } from "react";
 
 import { classNames } from "../../util/functions";
 import history from "../../util/browserHistory";
@@ -6,7 +6,7 @@ import { ReactComponent as Cart } from "../../asset/icons/cart.svg";
 
 import "./CartSelector.style.scss";
 
-export class CartSelector extends React.Component {
+export class CartSelector extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

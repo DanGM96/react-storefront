@@ -1,8 +1,8 @@
-import React from "react";
+import { PureComponent } from "react";
 
 import "./CartPage.style.scss";
 
-export default class Cart extends React.Component {
+export default class Cart extends PureComponent {
   render() {
     return (
       <div>

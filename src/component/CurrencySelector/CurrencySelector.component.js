@@ -1,10 +1,10 @@
-import React from "react";
+import { PureComponent } from "react";
 
 import { ReactComponent as ArrowDown } from "../../asset/icons/arrow-down.svg";
 
 import "./CurrencySelector.style.scss";
 
-export class CurrencySelector extends React.Component {
+export class CurrencySelector extends PureComponent {
   render() {
     return (
       <div className="currency-selector">
