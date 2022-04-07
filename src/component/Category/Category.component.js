@@ -12,6 +12,7 @@ export class Category extends PureComponent {
     this.state = {
       isSelected: this.isSelected(history.location),
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   isSelected(location) {
@@ -22,6 +23,10 @@ export class Category extends PureComponent {
     this.setState({
       isSelected: this.isSelected(update.location),
     });
+  }
+
+  handleClick() {
+    this.setState({ isSelected: !this.state.isSelected });
   }
 
   componentDidMount() {
@@ -38,9 +43,9 @@ export class Category extends PureComponent {
         className={classNames("category", {
           "category--selected": this.state.isSelected,
         })}
-        title={this.props.name}
+        name={this.props.name}
         to={`/${this.props.name}`}
-        onClick={() => this.setState({ isSelected: !this.state.isSelected })}
+        onClick={this.handleClick}
       >
         {this.props.name}
       </Link>

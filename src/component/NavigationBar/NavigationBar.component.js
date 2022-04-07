@@ -11,7 +11,7 @@ export class NavigationBar extends PureComponent {
     return (
       <div className="navigation-bar">
         <Categories />
-        <Logo className="navigation-bar-logo" />
+        <Logo className="navigation-bar__logo" />
         <Selectors />
       </div>
     );

@@ -1,0 +1,11 @@
+@import "src/style/variables.scss";
+
+.currency-list {
+  position: absolute;
+  flex-direction: column;
+  background: $c-background;
+  box-shadow: 0 0 4px 4px rgba(black, 0.02);
+  padding: 10px 0;
+  top: 65px;
+  transform: translateX(47px);
+}

@@ -2,23 +2,42 @@
 
 .currency-selector {
   display: flex;
-  align-self: center;
-  align-items: center;
   justify-content: flex-end;
-  padding: 10px;
 
   cursor: pointer;
+  user-select: none;
 
   color: $c-text;
   font-size: 18px;
   font-weight: 500;
 
-  &__arrow {
-    margin-left: 10px;
-    transform: translateY(3px);
+  &__wall {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: default;
   }
 
-  &:hover {
-    color: $c-primary;
+  &__group {
+    padding: 10px;
+    z-index: 10;
+    display: flex;
+    align-self: center;
+    align-items: center;
+
+    $translateY: 0px;
+    &__arrow {
+      margin-left: 10px;
+      transform: translateY($translateY);
+      transition: 0.3s ease-out;
+
+      &--selected {
+        transform: translateY($translateY) rotate(180deg);
+      }
+    }
   }
 }
