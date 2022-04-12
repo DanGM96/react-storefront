@@ -2,7 +2,7 @@ import { PureComponent } from "react";
 
 import "./CartPage.style.scss";
 
-export default class Cart extends PureComponent {
+export class CartPage extends PureComponent {
   render() {
     return (
       <div>
@@ -11,3 +11,5 @@ export default class Cart extends PureComponent {
     );
   }
 }
+
+export default CartPage;

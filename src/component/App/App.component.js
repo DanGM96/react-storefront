@@ -2,10 +2,12 @@ import { PureComponent } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import AppRouter from "../AppRouter/AppRouter.component";
-import NavigationBar from "../NavigationBar/NavigationBar.component";
+import NavigationBar from "../NavBar/NavigationBar/NavigationBar.component";
 import Cart from "../../route/CartPage/CartPage.component";
 import Home from "../../route/HomePage/HomePage.component";
 import SelectorsQuery from "../../query/Selectors.query";
+import CategoryPage from "../../route/CategoryPage/CategoryPage.component";
+
 import { CurrencyContext } from "../../store/CurrencyContext";
 
 export class App extends PureComponent {
@@ -38,6 +40,7 @@ export class App extends PureComponent {
           <Routes>
             <Route path="/" element={<Home address={this.state.address} />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/:category" element={<CategoryPage />} />
           </Routes>
         </AppRouter>
       </CurrencyContext.Provider>

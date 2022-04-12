@@ -2,7 +2,7 @@ import { PureComponent } from "react";
 
 import Categories from "../Categories/Categories.component";
 import Selectors from "../Selectors/Selectors.component";
-import { ReactComponent as Logo } from "../../asset/icons/logo.svg";
+import { ReactComponent as Logo } from "../../../asset/icons/logo.svg";
 
 import "./NavigationBar.style.scss";
 

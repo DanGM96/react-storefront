@@ -1,8 +1,8 @@
 import { PureComponent } from "react";
 
-import { classNames } from "../../util/functions";
-import history from "../../util/browserHistory";
-import { ReactComponent as Cart } from "../../asset/icons/cart.svg";
+import { classNames } from "../../../util/functions";
+import history from "../../../util/browserHistory";
+import { ReactComponent as Cart } from "../../../asset/icons/cart.svg";
 
 import "./CartSelector.style.scss";
 

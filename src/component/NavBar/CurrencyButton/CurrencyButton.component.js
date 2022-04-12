@@ -1,5 +1,5 @@
 import { PureComponent } from "react";
-import { CurrencyContext } from "../../store/CurrencyContext";
+import { CurrencyContext } from "../../../store/CurrencyContext";
 
 import "./CurrencyButton.style.scss";
 

@@ -11,7 +11,7 @@
   font-size: 18px;
   font-weight: 500;
 
-  &__wall {
+  &__overlay {
     position: absolute;
     padding: 0;
     margin: 0;
@@ -29,11 +29,10 @@
     align-self: center;
     align-items: center;
 
-    $translateY: 0px;
-    &__arrow {
+    $translateY: 2px;
+    &-arrow {
       margin-left: 10px;
       transform: translateY($translateY);
-      transition: 0.3s ease-out;
 
       &--selected {
         transform: translateY($translateY) rotate(180deg);

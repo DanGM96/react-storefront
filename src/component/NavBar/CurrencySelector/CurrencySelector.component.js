@@ -1,11 +1,11 @@
 import { PureComponent } from "react";
 
-import { ReactComponent as Arrow } from "../../asset/icons/arrow-down.svg";
+import { ReactComponent as Arrow } from "../../../asset/icons/arrow-down.svg";
 import CurrencyList from "../CurrencyList/CurrencyList.component";
 
-import SelectorsQuery from "../../query/Selectors.query";
-import { classNames } from "../../util/functions";
-import { CurrencyContext } from "../../store/CurrencyContext";
+import SelectorsQuery from "../../../query/Selectors.query";
+import { classNames } from "../../../util/functions";
+import { CurrencyContext } from "../../../store/CurrencyContext";
 import "./CurrencySelector.style.scss";
 
 export class CurrencySelector extends PureComponent {
@@ -53,21 +53,19 @@ export class CurrencySelector extends PureComponent {
     const currencies = this.state.currencies;
 
     return (
-      <>
-        <div className={this.selectedClass("currency-selector")} onClick={this.handleClick}>
-          {isSelected && <div className="currency-selector__wall" />}
+      <div className={this.selectedClass("currency-selector")} onClick={this.handleClick}>
+        {isSelected && <div className="currency-selector__overlay" />}
 
-          {isSelected && <CurrencyList currencies={currencies} />}
+        {isSelected && <CurrencyList currencies={currencies} />}
 
-          <div className={"currency-selector__group"}>
-            <CurrencyContext.Consumer>
-              {(value) => <span>{value.currency.symbol}</span>}
-            </CurrencyContext.Consumer>
+        <div className={"currency-selector__group"}>
+          <CurrencyContext.Consumer>
+            {(value) => <span>{value.currency.symbol}</span>}
+          </CurrencyContext.Consumer>
 
-            <Arrow className={this.selectedClass("currency-selector__group__arrow")} />
-          </div>
+          <Arrow className={this.selectedClass("currency-selector__group-arrow")} />
         </div>
-      </>
+      </div>
     );
   }
 }

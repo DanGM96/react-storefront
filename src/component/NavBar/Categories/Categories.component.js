@@ -2,7 +2,7 @@ import { PureComponent } from "react";
 
 import Category from "../Category/Category.component";
 
-import SelectorsQuery from "../../query/Selectors.query";
+import SelectorsQuery from "../../../query/Selectors.query";
 import "./Categories.style.scss";
 
 export class Categories extends PureComponent {
