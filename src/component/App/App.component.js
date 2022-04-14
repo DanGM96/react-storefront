@@ -14,7 +14,7 @@ export class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      address: "",
+      categories: [],
       currency: {},
       setCurrency: this.setCurrency.bind(this),
     };
@@ -27,23 +27,33 @@ export class App extends PureComponent {
   componentDidMount() {
     SelectorsQuery.getData().then(({ categories }) => {
       this.setState({
-        address: categories[0].name,
+        categories: categories.map(({ name }) => name),
       });
     });
   }
 
   render() {
     return (
-      <CurrencyContext.Provider value={this.state}>
-        <AppRouter>
-          <NavigationBar />
-          <Routes>
-            <Route path="/" element={<Home address={this.state.address} />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/:category" element={<CategoryPage />} />
-          </Routes>
-        </AppRouter>
-      </CurrencyContext.Provider>
+      <>
+        {
+          this.state.categories[0] && (
+            <CurrencyContext.Provider value={this.state}>
+              <AppRouter>
+                <NavigationBar />
+                <Routes>
+                  <Route path="/" element={<Home redirect={this.state.categories[0]} />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route
+                    path="/:category"
+                    element={<CategoryPage categories={this.state.categories} />}
+                  />
+                </Routes>
+              </AppRouter>
+            </CurrencyContext.Provider>
+          )
+          // TODO: ErrorPage
+        }
+      </>
     );
   }
 }

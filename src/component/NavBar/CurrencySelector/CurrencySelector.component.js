@@ -30,7 +30,7 @@ export class CurrencySelector extends PureComponent {
   componentDidMount() {
     const context = this.context;
 
-    SelectorsQuery.data.then(({ currencies }) => {
+    SelectorsQuery.getData().then(({ currencies }) => {
       this.setState({
         currencies: currencies,
       });

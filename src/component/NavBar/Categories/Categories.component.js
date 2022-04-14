@@ -14,7 +14,7 @@ export class Categories extends PureComponent {
   }
 
   componentDidMount() {
-    SelectorsQuery.data.then((data) => this.setState({ categories: data.categories }));
+    SelectorsQuery.getData().then(({ categories }) => this.setState({ categories: categories }));
   }
 
   render() {

@@ -3,42 +3,37 @@ import { Query, client, Field } from "@tilework/opus";
 client.setEndpoint("http://localhost:4000/");
 export class CategoryQuery {
   constructor(title) {
-    this.title = title;
-    this.category = {};
-    this.storeData();
+    this.data = {};
+    this.storeData(title);
   }
 
-  categoryQuery() {
-    return new Query("category")
-      .addArgument("input", "CategoryInput", { title: this.title })
-      .addField(
-        new Field("products", true)
-          .addField("id")
-          .addField("name")
-          .addField("inStock")
-          .addField("gallery", true)
-          .addField(
-            new Field("prices", true)
-              .addField(new Field("currency").addField("symbol"))
-              .addField("amount")
-          )
-          .addField("brand")
-      );
+  categoryQuery(title) {
+    return new Query("category").addArgument("input", "CategoryInput", { title: title }).addField(
+      new Field("products", true)
+        .addField("id")
+        .addField("name")
+        .addField("inStock")
+        .addField("gallery", true)
+        .addField(
+          new Field("prices", true)
+            .addField(new Field("currency").addField("label").addField("symbol"))
+            .addField("amount")
+        )
+        .addField("brand")
+    );
   }
 
-  queryResponse() {
-    return client.post(this.categoryQuery());
+  async queryResponse(title) {
+    return await client.post(this.categoryQuery(title));
   }
 
-  storeData() {
-    this.queryResponse().then(({ category }) => {
-      this.category = category;
-    });
+  storeData(title) {
+    this.data = this.queryResponse(title);
   }
 
-  getCategories() {
-    return this.category;
+  getData() {
+    return this.data;
   }
 }
 
-export default CategoryQuery(title);
+export default CategoryQuery;

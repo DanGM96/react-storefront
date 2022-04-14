@@ -2,7 +2,7 @@ import { PureComponent } from "react";
 
 import { classNames } from "../../../util/functions";
 import history from "../../../util/browserHistory";
-import { ReactComponent as Cart } from "../../../asset/icons/cart.svg";
+import { ReactComponent as CartIcon } from "../../../asset/icons/cart.svg";
 
 import "./CartSelector.style.scss";
 
@@ -39,7 +39,7 @@ export class CartSelector extends PureComponent {
           "cart-selector--selected": this.state.isSelected,
         })}
       >
-        <Cart />
+        <CartIcon />
       </div>
     );
   }

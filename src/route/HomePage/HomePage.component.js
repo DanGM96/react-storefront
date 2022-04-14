@@ -5,7 +5,7 @@ import "./HomePage.style.scss";
 
 export class HomePage extends PureComponent {
   render() {
-    return <div>{this.props.address && <Navigate to={`/${this.props.address}`} replace />}</div>;
+    return <Navigate to={`/${this.props.redirect}`} replace />;
   }
 }
 
