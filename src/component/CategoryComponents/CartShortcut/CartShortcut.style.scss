@@ -1,0 +1,23 @@
+@import "src/style/variables.scss";
+
+.cart-shortcut {
+  background-color: $c-primary;
+  color: $c-background;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: larger;
+
+  position: absolute;
+  right: 32px;
+  top: calc($img-height - 10px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & svg {
+    width: 24px;
+    height: 22.8px;
+  }
+}

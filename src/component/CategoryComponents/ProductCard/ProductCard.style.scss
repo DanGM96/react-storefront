@@ -1,0 +1,28 @@
+@import "src/style/variables.scss";
+
+$spacing: 16px;
+
+.product-card {
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  position: relative;
+
+  padding: $spacing;
+  max-width: calc($img-width + (2 * $spacing));
+  margin: 20px;
+
+  &--unavailable {
+    opacity: 50%;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $shadow;
+  }
+}
+
+a {
+  color: $c-text;
+  text-decoration: none;
+}
