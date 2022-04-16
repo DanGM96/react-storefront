@@ -1,6 +1,5 @@
 import { PureComponent } from "react";
 
-import { classNames } from "../../../util/functions";
 import history from "../../../util/browserHistory";
 import { ReactComponent as CartIcon } from "../../../asset/icons/cart.svg";
 
@@ -34,11 +33,7 @@ export class CartSelector extends PureComponent {
 
   render() {
     return (
-      <div
-        className={classNames("cart-selector", {
-          "cart-selector--selected": this.state.isSelected,
-        })}
-      >
+      <div className={`cart-selector ${this.state.isSelected && "cart-selector--selected"}`}>
         <CartIcon />
       </div>
     );

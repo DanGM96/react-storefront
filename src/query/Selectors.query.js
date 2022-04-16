@@ -1,6 +1,6 @@
-import { Query, client, CombinedField } from "@tilework/opus";
+import { Query, CombinedField } from "@tilework/opus";
+import { queryResponse } from "../util/query";
 
-client.setEndpoint("http://localhost:4000/");
 export class SelectorsQuery {
   constructor() {
     this.data = {};
@@ -19,12 +19,8 @@ export class SelectorsQuery {
     return new CombinedField().add(this.categoriesQuery()).add(this.currenciesQuery());
   }
 
-  async queryResponse() {
-    return await client.post(this.categoriesCurrenciesQuery());
-  }
-
   setData() {
-    this.data = this.queryResponse();
+    this.data = queryResponse(this.categoriesCurrenciesQuery());
   }
 
   getData() {

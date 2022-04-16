@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 
 import ProductImage from "../ProductImage/ProductImage.component";
 import ProductName from "../ProductName/ProductName.component";
-import ProductPrice from "../ProductPrice/ProductPrice.component";
+import ProductPrice from "../../Shared/ProductPrice/ProductPrice.component";
 
-import { classNames } from "../../../util/functions";
 import "./ProductCard.style.scss";
 import CartShortcut from "../CartShortcut/CartShortcut.component";
 
@@ -26,11 +25,9 @@ export class ProductCard extends PureComponent {
     const product = this.props.product;
 
     return (
-      <Link to={`/${product.id}`}>
+      <Link to={`/${product.category}/${product.id}`}>
         <div
-          className={classNames("product-card", {
-            "product-card--unavailable": !product.inStock,
-          })}
+          className={`product-card ${!product.inStock && "product-card--unavailable"}`}
           onMouseEnter={this.handleMouseHover}
           onMouseLeave={this.handleMouseHover}
         >
@@ -40,7 +37,7 @@ export class ProductCard extends PureComponent {
 
           <ProductName brand={product.brand} name={product.name} />
 
-          <ProductPrice prices={product.prices} />
+          <ProductPrice className="product-card__price" prices={product.prices} />
         </div>
       </Link>
     );

@@ -1,7 +1,7 @@
 import { PureComponent } from "react";
 import { Router } from "react-router-dom";
 
-import history from "../../util/browserHistory";
+import history from "../../../util/browserHistory";
 
 export class AppRouter extends PureComponent {
   constructor(props) {

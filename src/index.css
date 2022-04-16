@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&family=Roboto&family=Roboto+Condensed:wght@700&family=Source+Sans+Pro&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -9,15 +11,4 @@ a {
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
-@font-face {
-  font-family: "Raleway";
-  src: local("Raleway"), url("./asset/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
 }

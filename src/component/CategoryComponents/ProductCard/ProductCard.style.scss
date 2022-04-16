@@ -10,10 +10,15 @@ $spacing: 16px;
 
   padding: $spacing;
   max-width: calc($img-width + (2 * $spacing));
-  margin: 20px;
 
   &--unavailable {
     opacity: 50%;
+  }
+
+  &__price {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 29px;
   }
 
   &:hover {

@@ -1,37 +1,42 @@
 import { PureComponent } from "react";
-import { Navigate } from "react-router-dom";
+
 import ProductListing from "../../component/CategoryComponents/ProductListing/ProductListing.component";
 import { Title } from "../../component/CategoryComponents/Title/Title.component";
 
 import CategoryQuery from "../../query/Category.query";
 import history from "../../util/browserHistory";
+import { getLastSegment } from "../../util/functions";
 import "./CategoryPage.style.scss";
 
 export class CategoryPage extends PureComponent {
+  unsubscribe = false;
   constructor(props) {
     super(props);
     this.state = {
-      title: this.getLastSegment(history.location.pathname),
+      title: getLastSegment(history.location.pathname),
       category: {},
     };
   }
 
-  getLastSegment(path) {
-    return path.substring(path.lastIndexOf("/") + 1);
-  }
-
   updateTitle(update) {
-    this.setState({
-      title: this.getLastSegment(update.location.pathname),
-    });
+    if (this.unsubscribe) {
+      this.setState({
+        title: getLastSegment(update.location.pathname),
+      });
+    }
   }
 
   updateProducts() {
     const query = new CategoryQuery(this.state.title);
-    query.getData().then(({ category }) => this.setState({ category: category }));
+    query.getData().then(({ category }) => {
+      if (this.unsubscribe) {
+        this.setState({ category: category });
+      }
+    });
   }
 
   componentDidMount() {
+    this.unsubscribe = true;
     this.unlisten = history.listen((update) => this.updateTitle(update));
     this.updateProducts();
   }
@@ -43,11 +48,11 @@ export class CategoryPage extends PureComponent {
   }
 
   componentWillUnmount() {
+    this.unsubscribe = false;
     this.unlisten();
   }
 
   render() {
-    // this.props.categories.includes(this.state.title) ? :  // check if page is valid
     return (
       <div className="category-page">
         <Title id={this.state.title} />

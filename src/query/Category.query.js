@@ -1,6 +1,6 @@
-import { Query, client, Field } from "@tilework/opus";
+import { Query, Field } from "@tilework/opus";
+import { queryResponse } from "../util/query";
 
-client.setEndpoint("http://localhost:4000/");
 export class CategoryQuery {
   constructor(title) {
     this.data = {};
@@ -14,6 +14,7 @@ export class CategoryQuery {
         .addField("name")
         .addField("inStock")
         .addField("gallery", true)
+        .addField("category")
         .addField(
           new Field("prices", true)
             .addField(new Field("currency").addField("label").addField("symbol"))
@@ -23,12 +24,8 @@ export class CategoryQuery {
     );
   }
 
-  async queryResponse(title) {
-    return await client.post(this.categoryQuery(title));
-  }
-
   storeData(title) {
-    this.data = this.queryResponse(title);
+    this.data = queryResponse(this.categoryQuery(title));
   }
 
   getData() {

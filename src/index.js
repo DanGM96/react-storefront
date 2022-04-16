@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 import App from "./component/App/App.component";
 
 import reportWebVitals from "./util/reportWebVitals";
-import "./asset/fonts/Raleway-VariableFont_wght.ttf";
 import "./index.css";
 
 ReactDOM.render(

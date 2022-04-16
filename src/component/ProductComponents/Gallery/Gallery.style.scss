@@ -1,0 +1,25 @@
+.gallery {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  &__thumbnails {
+    cursor: pointer;
+    margin: 20px;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__showcase {
+    width: 610px;
+    height: 510px;
+    margin-right: 100px;
+    object-fit: scale-down;
+  }
+}

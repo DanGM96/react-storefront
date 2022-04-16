@@ -1,0 +1,27 @@
+@import "src/style/variables.scss";
+
+.attribute-button {
+  width: 63px;
+  height: 45px;
+  border: 1px solid $c-text;
+
+  cursor: pointer;
+  font-family: "Source Sans Pro", sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input:checked + .attribute-button--selected {
+  color: white;
+  background-color: black;
+}
+
+input {
+  display: none;
+}
+
+input:checked + .attribute-button--selected-swatch {
+  border: 3px solid $c-primary;
+}

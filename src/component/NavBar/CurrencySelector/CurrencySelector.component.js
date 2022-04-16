@@ -4,7 +4,6 @@ import { ReactComponent as Arrow } from "../../../asset/icons/arrow-down.svg";
 import CurrencyList from "../CurrencyList/CurrencyList.component";
 
 import SelectorsQuery from "../../../query/Selectors.query";
-import { classNames } from "../../../util/functions";
 import { CurrencyContext } from "../../../store/CurrencyContext";
 import "./CurrencySelector.style.scss";
 
@@ -19,12 +18,6 @@ export class CurrencySelector extends PureComponent {
       currency: {},
     };
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  selectedClass(className) {
-    return classNames(className, {
-      [className + "--selected"]: this.state.isSelected,
-    });
   }
 
   componentDidMount() {
@@ -53,7 +46,7 @@ export class CurrencySelector extends PureComponent {
     const currencies = this.state.currencies;
 
     return (
-      <div className={this.selectedClass("currency-selector")} onClick={this.handleClick}>
+      <div className={"currency-selector"} onClick={this.handleClick}>
         {isSelected && <div className="currency-selector__overlay" />}
 
         {isSelected && <CurrencyList currencies={currencies} />}
@@ -63,7 +56,10 @@ export class CurrencySelector extends PureComponent {
             {(value) => <span>{value.currency.symbol}</span>}
           </CurrencyContext.Consumer>
 
-          <Arrow className={this.selectedClass("currency-selector__group-arrow")} />
+          <Arrow
+            className={`currency-selector__group-arrow 
+              ${this.state.isSelected && "currency-selector__group-arrow--selected"}`}
+          />
         </div>
       </div>
     );

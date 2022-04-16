@@ -1,12 +1,11 @@
 import { PureComponent } from "react";
 
 import { CurrencyContext } from "../../../store/CurrencyContext";
-import "./ProductPrice.style.scss";
 
 export class ProductPrice extends PureComponent {
   render() {
     return (
-      <span className="product-price">
+      <span className={this.props.className}>
         <CurrencyContext.Consumer>
           {(value) => {
             const priceIndex = this.props.prices.findIndex(
