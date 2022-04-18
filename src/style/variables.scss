@@ -1,8 +1,16 @@
 $c-primary: #5ece7b;
 $c-text: #1d1f22;
 $c-background: #ffffff;
+$c-unavailable-text: #8d8f9a;
+$c-unavailable-button: #a6a6a6;
 $c-cart: #43464e;
+$c-overlay: rgba(57, 55, 72, 0.22);
 
-$shadow: 0 0 4px 4px rgba(black, 0.03);
-$img-width: 354px;
-$img-height: 330px;
+$card-img-width: 354px;
+$card-img-height: 330px;
+$galley-img-width: 610px;
+$galley-img-height: 510px;
+$product-options-width: 290px;
+
+$common-shadow: 0 0 4px 4px rgba(black, 0.03);
+$common-z-index: 110;

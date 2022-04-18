@@ -11,15 +11,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &--unavailable {
+    color: $c-unavailable-button;
+    border-color: $c-unavailable-button;
+  }
+}
+
+input {
+  display: none;
 }
 
 input:checked + .attribute-button--selected {
   color: white;
   background-color: black;
-}
-
-input {
-  display: none;
 }
 
 input:checked + .attribute-button--selected-swatch {

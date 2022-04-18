@@ -8,7 +8,7 @@ export class Category extends PureComponent {
     return (
       <NavLink
         end
-        className={({ isActive }) => `category ${isActive && "category--selected"}`}
+        className={({ isActive }) => `category ${isActive ? "category--selected" : ""}`}
         name={this.props.name}
         to={`/${this.props.name}`}
       >

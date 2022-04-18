@@ -2,18 +2,22 @@
 
 .product-image {
   position: relative;
-  width: $img-width;
-  height: $img-height;
+  width: $card-img-width;
+  height: $card-img-height;
   margin-bottom: 24px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  & img {
+  &__img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+
+    &--unavailable {
+      opacity: 50%;
+    }
   }
 
   & span {

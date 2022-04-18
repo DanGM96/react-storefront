@@ -9,10 +9,10 @@ $spacing: 16px;
   position: relative;
 
   padding: $spacing;
-  max-width: calc($img-width + (2 * $spacing));
+  max-width: calc($card-img-width + (2 * $spacing));
 
   &--unavailable {
-    opacity: 50%;
+    color: $c-unavailable-text;
   }
 
   &__price {
@@ -23,11 +23,10 @@ $spacing: 16px;
 
   &:hover {
     cursor: pointer;
-    box-shadow: $shadow;
+    box-shadow: $common-shadow;
   }
 }
 
 a {
   color: $c-text;
-  text-decoration: none;
 }

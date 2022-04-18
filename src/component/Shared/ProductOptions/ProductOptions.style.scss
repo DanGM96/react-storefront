@@ -1,0 +1,66 @@
+@import "src/style/variables.scss";
+
+.product-options {
+  display: flex;
+  flex-direction: column;
+  background-color: $c-background;
+  width: $product-options-width;
+
+  &__brand {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__price-label {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  &__price-value {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  &__button {
+    all: unset;
+    max-width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    margin-bottom: 40px;
+
+    font-size: 16px;
+    font-weight: 600;
+    color: $c-background;
+    background-color: $c-primary;
+    cursor: pointer;
+
+    &--unavailable {
+      opacity: 50%;
+    }
+  }
+
+  &__description {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+  }
+}

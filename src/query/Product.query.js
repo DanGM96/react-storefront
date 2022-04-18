@@ -10,6 +10,7 @@ export class ProductQuery {
   productQuery(id) {
     return new Query("product")
       .addArgument("id", "String!", id)
+      .addField("id")
       .addField("name")
       .addField("inStock")
       .addField("gallery", true)

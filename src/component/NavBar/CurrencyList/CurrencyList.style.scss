@@ -4,9 +4,10 @@
   position: absolute;
   flex-direction: column;
   background: $c-background;
-  box-shadow: $shadow;
+  box-shadow: $common-shadow;
   padding: 10px 0;
   top: 65px;
   transform: translateX(47px);
   cursor: default;
+  z-index: $common-z-index;
 }

@@ -13,8 +13,7 @@ export class CurrencyButton extends PureComponent {
 
   handleClick() {
     const context = this.context;
-    localStorage.setItem("currency", JSON.stringify(this.props.currency));
-    context.setCurrency(this.props.currency);
+    context.updateCurrency(this.props.currency);
   }
 
   render() {

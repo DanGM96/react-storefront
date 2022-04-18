@@ -5,6 +5,7 @@ import "./AttributeButton.style.scss";
 export class AttributeButton extends PureComponent {
   render() {
     const item = this.props.item;
+    const notInStock = !this.props.inStock;
 
     let value = item.value;
     let backgroundColor = "";
@@ -23,9 +24,11 @@ export class AttributeButton extends PureComponent {
           name={this.props.id}
           value={item.id}
           defaultChecked={this.props.checked}
+          disabled={notInStock}
         />
         <div
-          className={`attribute-button ${selectedClass}`}
+          className={`attribute-button ${selectedClass} 
+            ${notInStock ? "attribute-button--unavailable" : ""}`}
           style={{ backgroundColor: backgroundColor }}
           key={this.props.item.id}
         >

@@ -1,0 +1,19 @@
+@import "src/style/variables.scss";
+
+.product-shortcut {
+  position: fixed;
+  display: flex;
+  z-index: $common-z-index;
+  top: 0;
+  height: 100%;
+  align-items: center;
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $c-background;
+    padding: 12px;
+    z-index: $common-z-index;
+  }
+}

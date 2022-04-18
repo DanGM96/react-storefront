@@ -1,25 +1,39 @@
+@import "src/style/variables.scss";
+
 .gallery {
   position: relative;
-
   display: flex;
-  flex-direction: column;
 
   &__thumbnails {
-    cursor: pointer;
-    margin: 20px;
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: calc($galley-img-width + 20px);
 
-    &:first-child {
-      margin-top: 0;
+    &-item {
+      cursor: pointer;
+      margin: 20px;
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    /* Scroll config */
+    height: $galley-img-height;
+    overflow: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
     }
   }
 
   &__showcase {
-    width: 610px;
-    height: 510px;
-    margin-right: 100px;
+    width: $galley-img-width;
+    height: $galley-img-height;
     object-fit: scale-down;
   }
 }

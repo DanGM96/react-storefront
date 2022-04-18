@@ -33,7 +33,7 @@ export class CartSelector extends PureComponent {
 
   render() {
     return (
-      <div className={`cart-selector ${this.state.isSelected && "cart-selector--selected"}`}>
+      <div className={`cart-selector ${this.state.isSelected ? "cart-selector--selected" : ""}`}>
         <CartIcon />
       </div>
     );

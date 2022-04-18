@@ -17,11 +17,11 @@ export class Gallery extends PureComponent {
 
   render() {
     return (
-      <>
-        <div className="gallery">
+      <div className="gallery">
+        <div className="gallery__thumbnails">
           {this.props.gallery.map((src, index) => (
             <img
-              className="gallery__thumbnails"
+              className="gallery__thumbnails-item"
               key={index}
               src={src}
               alt=""
@@ -30,7 +30,7 @@ export class Gallery extends PureComponent {
           ))}
         </div>
         <img className="gallery__showcase" src={this.props.gallery[this.state.imgIndex]} alt="" />
-      </>
+      </div>
     );
   }
 }

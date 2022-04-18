@@ -4,11 +4,17 @@ import "./ProductImage.style.scss";
 
 export class ProductImage extends PureComponent {
   render() {
+    const notInStock = !this.props.inStock;
+
     return (
       <div className="product-image">
-        <img src={this.props.src} alt="" />
+        <img
+          className={`product-image__img ${notInStock ? "product-image__img--unavailable" : ""}`}
+          src={this.props.src}
+          alt=""
+        />
 
-        {!this.props.inStock && <span>OUT OF STOCK</span>}
+        {notInStock && <span>OUT OF STOCK</span>}
       </div>
     );
   }
