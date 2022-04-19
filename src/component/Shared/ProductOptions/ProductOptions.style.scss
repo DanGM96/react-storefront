@@ -55,6 +55,10 @@
     &--unavailable {
       opacity: 50%;
     }
+
+    &:active:enabled {
+      opacity: 90%;
+    }
   }
 
   &__description {

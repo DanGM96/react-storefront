@@ -26,6 +26,10 @@
     background-size: 100% 2px;
   }
 
+  &:hover {
+    color: $c-primary;
+  }
+
   /* Used to prevent the elements from shifting on font-weight: 600 */
   &::after {
     content: attr(name) ".";

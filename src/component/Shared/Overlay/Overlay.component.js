@@ -4,12 +4,7 @@ import "./Overlay.style.scss";
 
 export class Overlay extends PureComponent {
   render() {
-    return (
-      <div
-        className={`overlay ${this.props.withColor ? "overlay--color" : ""}`}
-        style={this.props.style}
-      />
-    );
+    return <div className={`overlay ${this.props.withColor ? "overlay--color" : ""}`} />;
   }
 }
 

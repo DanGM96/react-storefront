@@ -1,3 +1,5 @@
+@import "src/style/variables.scss";
+
 .currency-button {
   padding: 10px 20px;
   display: flex;
@@ -5,4 +7,8 @@
 
   cursor: pointer;
   user-select: none;
+
+  &:hover {
+    color: $c-primary;
+  }
 }

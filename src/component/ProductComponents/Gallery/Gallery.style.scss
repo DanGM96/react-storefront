@@ -22,6 +22,10 @@
       }
     }
 
+    &:hover {
+      box-shadow: $common-shadow;
+    }
+
     /* Scroll config */
     height: $galley-img-height;
     overflow: auto;

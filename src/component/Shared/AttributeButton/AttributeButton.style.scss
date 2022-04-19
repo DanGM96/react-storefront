@@ -28,5 +28,5 @@ input:checked + .attribute-button--selected {
 }
 
 input:checked + .attribute-button--selected-swatch {
-  border: 3px solid $c-primary;
+  border: 2px solid $c-primary;
 }

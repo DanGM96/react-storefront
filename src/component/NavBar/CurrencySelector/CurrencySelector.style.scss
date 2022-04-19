@@ -27,5 +27,9 @@
         transform: translateY($translateY) rotate(180deg);
       }
     }
+
+    &:hover {
+      color: $c-primary;
+    }
   }
 }

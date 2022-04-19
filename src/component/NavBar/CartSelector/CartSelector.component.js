@@ -1,40 +1,17 @@
 import { PureComponent } from "react";
 
-import history from "../../../util/browserHistory";
 import { ReactComponent as CartIcon } from "../../../asset/icons/cart.svg";
 
 import "./CartSelector.style.scss";
 
 export class CartSelector extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSelected: this.isSelected(history.location),
-    };
-  }
-
-  isSelected(location) {
-    return location.pathname === "/cart";
-  }
-
-  updateSelected(update) {
-    this.setState({
-      isSelected: this.isSelected(update.location),
-    });
-  }
-
-  componentDidMount() {
-    this.unlisten = history.listen((update) => this.updateSelected(update));
-  }
-
-  componentWillUnmount() {
-    this.unlisten();
-  }
-
   render() {
     return (
-      <div className={`cart-selector ${this.state.isSelected ? "cart-selector--selected" : ""}`}>
+      <div className="cart-selector">
         <CartIcon />
+        <div className="cart-selector__circle">
+          <span className="cart-selector__circle-text">2</span>
+        </div>
       </div>
     );
   }
