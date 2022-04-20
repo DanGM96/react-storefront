@@ -1,0 +1,29 @@
+@import "src/style/variables.scss";
+
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: calc($galley-img-width + 20px);
+
+  &__item {
+    cursor: pointer;
+    margin: 20px;
+    width: 80px;
+    min-height: 80px;
+    object-fit: contain;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  /* Scroll config */
+  height: $galley-img-height;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

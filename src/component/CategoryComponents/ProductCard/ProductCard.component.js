@@ -17,7 +17,7 @@ export class ProductCard extends PureComponent {
       isShortcutOpen: false,
     };
     this.handleMouseHover = this.handleMouseHover.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.openShortcut = this.openShortcut.bind(this);
     this.closeShortcut = this.closeShortcut.bind(this);
   }
 
@@ -25,13 +25,13 @@ export class ProductCard extends PureComponent {
     this.setState({ isShortcutOpen: false });
   }
 
-  handleClick(event) {
+  openShortcut(event) {
     event.preventDefault();
     this.setState({ isShortcutOpen: true });
   }
 
   handleMouseHover() {
-    this.setState({ isHovering: !this.state.isHovering });
+    this.setState((state) => ({ isHovering: !state.isHovering }));
   }
 
   render() {
@@ -49,7 +49,7 @@ export class ProductCard extends PureComponent {
             <ProductImage src={product.gallery[0]} inStock={product.inStock} />
 
             {this.state.isHovering && product.inStock && (
-              <div onClick={this.handleClick}>
+              <div onClick={this.openShortcut}>
                 <CartShortcut product={product.id} />
               </div>
             )}

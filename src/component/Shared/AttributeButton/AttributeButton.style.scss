@@ -23,8 +23,8 @@ input {
 }
 
 input:checked + .attribute-button--selected {
-  color: white;
-  background-color: black;
+  color: $c-background;
+  background-color: $c-text;
 }
 
 input:checked + .attribute-button--selected-swatch {

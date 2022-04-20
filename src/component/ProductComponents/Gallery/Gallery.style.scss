@@ -4,37 +4,6 @@
   position: relative;
   display: flex;
 
-  &__thumbnails {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: calc($galley-img-width + 20px);
-
-    &-item {
-      cursor: pointer;
-      margin: 20px;
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-
-    &:hover {
-      box-shadow: $common-shadow;
-    }
-
-    /* Scroll config */
-    height: $galley-img-height;
-    overflow: auto;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
   &__showcase {
     width: $galley-img-width;
     height: $galley-img-height;

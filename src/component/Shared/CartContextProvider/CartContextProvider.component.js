@@ -7,6 +7,7 @@ export class CartContextProvider extends PureComponent {
     super(props);
     this.state = {
       cart: [],
+      totalQuantity: 0,
       addProduct: this.addProduct.bind(this),
       removeProduct: this.removeProduct.bind(this),
     };
@@ -15,6 +16,12 @@ export class CartContextProvider extends PureComponent {
   updateCart(cartCopy) {
     sessionStorage.setItem("cart", JSON.stringify(cartCopy));
     this.setState({ cart: cartCopy });
+  }
+
+  getTotalQuantity(cart) {
+    let totalQuantity = 0;
+    cart.forEach((item) => (totalQuantity += item.quantity));
+    this.setState({ totalQuantity: totalQuantity });
   }
 
   productIndex(cartCopy, product) {
@@ -33,6 +40,7 @@ export class CartContextProvider extends PureComponent {
       cartCopy.push({ quantity: quantity, selectedProduct: selectedProduct });
     }
 
+    this.getTotalQuantity(cartCopy);
     this.updateCart(cartCopy);
   }
 
@@ -46,13 +54,16 @@ export class CartContextProvider extends PureComponent {
       cartCopy[index].quantity -= quantity;
     }
 
+    this.getTotalQuantity(cartCopy);
     this.updateCart(cartCopy);
   }
 
   componentDidMount() {
-    const cart = sessionStorage.getItem("cart");
+    let cart = sessionStorage.getItem("cart");
     if (cart !== null) {
-      this.setState({ cart: JSON.parse(cart) });
+      cart = JSON.parse(cart);
+      this.getTotalQuantity(cart);
+      this.setState({ cart: cart });
     }
   }
 

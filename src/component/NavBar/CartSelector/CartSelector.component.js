@@ -2,6 +2,7 @@ import { PureComponent } from "react";
 
 import { ReactComponent as CartIcon } from "../../../asset/icons/cart.svg";
 
+import { CartContext } from "../../../store/CartContext";
 import "./CartSelector.style.scss";
 
 export class CartSelector extends PureComponent {
@@ -10,7 +11,9 @@ export class CartSelector extends PureComponent {
       <div className="cart-selector">
         <CartIcon />
         <div className="cart-selector__circle">
-          <span className="cart-selector__circle-text">2</span>
+          <CartContext.Consumer>
+            {(value) => <span className="cart-selector__circle-text">{value.totalQuantity}</span>}
+          </CartContext.Consumer>
         </div>
       </div>
     );

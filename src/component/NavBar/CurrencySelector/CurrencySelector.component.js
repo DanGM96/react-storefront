@@ -27,7 +27,7 @@ export class CurrencySelector extends PureComponent {
   }
 
   handleClick() {
-    this.setState({ isSelected: !this.state.isSelected });
+    this.setState((state) => ({ isSelected: !state.isSelected }));
   }
 
   render() {

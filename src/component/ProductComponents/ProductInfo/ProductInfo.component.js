@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
-import ProductPrice from "../../Shared/ProductPrice/ProductPrice.component";
-import AttributeSelector from "../../Shared/AttributeSelector/AttributeSelector.component";
+import { Interweave } from "interweave";
+
 import ProductOptions from "../../Shared/ProductOptions/ProductOptions.component";
 
 import "./ProductInfo.style.scss";
@@ -10,9 +10,10 @@ export class ProductInfo extends PureComponent {
     return (
       <div className="product-info">
         <ProductOptions product={this.props.product} />
-        <div
+
+        <Interweave
           className="product-info__description"
-          dangerouslySetInnerHTML={{ __html: this.props.product.description }}
+          content={this.props.product.description}
         />
       </div>
     );

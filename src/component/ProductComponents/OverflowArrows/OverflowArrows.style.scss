@@ -1,0 +1,28 @@
+@import "src/style/variables.scss";
+
+.arrows {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: calc($galley-img-width + 20px);
+  width: 120px;
+  height: $galley-img-height;
+  align-items: center;
+  justify-content: space-between;
+
+  &__up,
+  &__down {
+    color: rgba($color: $c-text, $alpha: 0.8);
+    width: 120px;
+    height: 8px;
+    z-index: calc($common-z-index - 1);
+  }
+
+  &__up {
+    transform: translateY(-10px) rotate(180deg);
+  }
+
+  &__down {
+    transform: translateY(10px);
+  }
+}
