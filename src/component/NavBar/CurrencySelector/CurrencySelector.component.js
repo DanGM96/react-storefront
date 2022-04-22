@@ -1,4 +1,4 @@
-import { PureComponent } from "react";
+import { Fragment, PureComponent } from "react";
 
 import { ReactComponent as Arrow } from "../../../asset/icons/arrow-down.svg";
 import CurrencyList from "../CurrencyList/CurrencyList.component";
@@ -35,22 +35,26 @@ export class CurrencySelector extends PureComponent {
     const currencies = this.state.currencies;
 
     return (
-      <div className={"currency-selector"} onClick={this.handleClick}>
-        {isSelected && <Overlay />}
+      <>
+        <div className={"currency-selector"} onClick={this.handleClick}>
+          {isSelected && <Overlay />}
+
+          <div className={"currency-selector__group"}>
+            <span>
+              <CurrencyContext.Consumer>
+                {(value) => value.currency.symbol}
+              </CurrencyContext.Consumer>
+            </span>
+
+            <Arrow
+              className={`currency-selector__group-arrow 
+              ${this.state.isSelected ? "currency-selector__group-arrow--selected" : ""}`}
+            />
+          </div>
+        </div>
 
         {isSelected && <CurrencyList currencies={currencies} />}
-
-        <div className={"currency-selector__group"}>
-          <CurrencyContext.Consumer>
-            {(value) => <span>{value.currency.symbol}</span>}
-          </CurrencyContext.Consumer>
-
-          <Arrow
-            className={`currency-selector__group-arrow 
-              ${this.state.isSelected ? "currency-selector__group-arrow--selected" : ""}`}
-          />
-        </div>
-      </div>
+      </>
     );
   }
 }

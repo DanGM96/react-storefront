@@ -1,32 +1,44 @@
 @import "src/style/variables.scss";
 
 .attribute-button {
-  width: 63px;
-  height: 45px;
-  border: 1px solid $c-text;
-
-  cursor: pointer;
-  font-family: "Source Sans Pro", sans-serif;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
+  width: 64px;
+  height: 45px;
+  border: 1px solid $c-text;
+  cursor: pointer;
+  font-family: "Source Sans Pro", sans-serif;
+
+  &-mini {
+    width: $mini-cart-attr-size;
+    height: $mini-cart-attr-size;
+    font-size: 50%;
+    cursor: default;
+  }
+
+  &--selected-swatch {
+    outline: 2px solid $c-background;
+    outline-offset: -3px;
+  }
+
   &--unavailable {
-    color: $c-unavailable-button;
-    border-color: $c-unavailable-button;
+    color: $c-button-unavailable;
+    border-color: $c-button-unavailable;
   }
 }
 
 input {
   display: none;
-}
 
-input:checked + .attribute-button--selected {
-  color: $c-background;
-  background-color: $c-text;
-}
+  &:checked + .attribute-button--selected {
+    color: $c-background;
+    background-color: $c-text;
+  }
 
-input:checked + .attribute-button--selected-swatch {
-  border: 2px solid $c-primary;
+  &:checked + .attribute-button--selected-swatch {
+    border: 2px solid $c-primary;
+    outline-offset: -4px;
+  }
 }

@@ -12,7 +12,7 @@ $spacing: 16px;
   max-width: calc($card-img-width + (2 * $spacing));
 
   &--unavailable {
-    color: $c-unavailable-text;
+    color: $c-text-unavailable;
   }
 
   &__price {

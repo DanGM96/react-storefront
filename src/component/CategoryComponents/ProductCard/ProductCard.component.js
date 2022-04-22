@@ -50,7 +50,7 @@ export class ProductCard extends PureComponent {
 
             {this.state.isHovering && product.inStock && (
               <div onClick={this.openShortcut}>
-                <CartShortcut product={product.id} />
+                <CartShortcut />
               </div>
             )}
 

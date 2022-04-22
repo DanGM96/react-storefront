@@ -1,9 +1,6 @@
 @import "src/style/variables.scss";
 
 .currency-selector {
-  display: flex;
-  justify-content: flex-end;
-
   cursor: pointer;
   user-select: none;
 
@@ -12,11 +9,10 @@
   font-weight: 500;
 
   &__group {
-    padding: 10px;
     display: flex;
     align-self: center;
     align-items: center;
-    z-index: $common-z-index;
+    padding: 10px;
 
     $translateY: 2px;
     &-arrow {
@@ -26,10 +22,6 @@
       &--selected {
         transform: translateY($translateY) rotate(180deg);
       }
-    }
-
-    &:hover {
-      color: $c-primary;
     }
   }
 }

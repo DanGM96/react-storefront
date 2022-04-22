@@ -1,0 +1,25 @@
+@import "src/style/variables.scss";
+
+.quantity-manager {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: $mini-cart-attr-size;
+    height: $mini-cart-attr-size;
+    border: 1px solid $c-text;
+    margin: 0 4px;
+    cursor: pointer;
+
+    & svg {
+      width: 40%;
+      height: 40%;
+    }
+  }
+}

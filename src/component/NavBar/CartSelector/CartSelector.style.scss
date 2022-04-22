@@ -1,39 +1,39 @@
 @import "src/style/variables.scss";
 
 .cart-selector {
-  display: flex;
-  padding: 10px;
   cursor: pointer;
   color: $c-cart;
-  position: relative;
 
   & svg {
     width: 20px;
     height: 20px;
   }
 
-  &__circle {
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    background-color: $c-text;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
+  &__group {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    padding: 10px;
 
-    &-text {
-      font-family: "Roboto", sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      color: $c-background;
+    &-quantity {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      background-color: $c-text;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-text {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        color: $c-background;
+        user-select: none;
+      }
     }
-  }
-
-  &:hover {
-    color: $c-primary;
   }
 }

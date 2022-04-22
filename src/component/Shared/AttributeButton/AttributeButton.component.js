@@ -5,7 +5,7 @@ import "./AttributeButton.style.scss";
 export class AttributeButton extends PureComponent {
   render() {
     const item = this.props.item;
-    const notInStock = !this.props.inStock;
+    const disabled = !this.props.enabled;
 
     let value = item.value;
     let backgroundColor = "";
@@ -14,23 +14,26 @@ export class AttributeButton extends PureComponent {
     if (this.props.isSwatch) {
       value = "";
       backgroundColor = item.value;
-      selectedClass = "attribute-button--selected-swatch";
+      selectedClass += "-swatch";
     }
 
     return (
       <label>
         <input
           type={"radio"}
-          name={this.props.id}
+          name={disabled ? null : this.props.id}
           value={item.id}
-          defaultChecked={this.props.checked}
-          disabled={notInStock}
+          defaultChecked={this.props.defaultChecked}
+          disabled={disabled}
         />
+
         <div
           className={`attribute-button ${selectedClass} 
-            ${notInStock ? "attribute-button--unavailable" : ""}`}
+            ${disabled ? "attribute-button--unavailable" : ""}
+            ${this.props.miniCart ? "attribute-button-mini" : ""}
+            `}
           style={{ backgroundColor: backgroundColor }}
-          key={this.props.item.id}
+          title={this.props.item.displayValue}
         >
           {value}
         </div>

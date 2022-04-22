@@ -48,7 +48,7 @@ export class CartContextProvider extends PureComponent {
     let cartCopy = [...this.state.cart];
     const index = this.productIndex(cartCopy, selectedProduct);
 
-    if (cartCopy[index].quantity === 0) {
+    if (cartCopy[index].quantity === 1) {
       cartCopy.splice(index, 1);
     } else {
       cartCopy[index].quantity -= quantity;

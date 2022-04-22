@@ -5,10 +5,11 @@
   display: flex;
   justify-content: space-between;
 
+  color: $c-text;
   cursor: pointer;
   user-select: none;
 
   &:hover {
-    color: $c-primary;
+    background-color: $c-button-hover;
   }
 }

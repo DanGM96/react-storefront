@@ -6,6 +6,7 @@ import AttributeSelector from "../AttributeSelector/AttributeSelector.component"
 import { CartContext } from "../../../store/CartContext";
 
 import "./ProductOptions.style.scss";
+import MainButton from "../MainButton/MainButton.component";
 
 export class ProductOptions extends PureComponent {
   static contextType = CartContext;
@@ -36,24 +37,18 @@ export class ProductOptions extends PureComponent {
         <span className="product-options__brand">{product.brand}</span>
         <span className="product-options__name">{product.name}</span>
 
-        {product.attributes.map((attribute) => (
-          <AttributeSelector
-            key={attribute.id}
-            {...{ attribute: attribute, inStock: product.inStock }}
-          />
-        ))}
+        <div className="product-options__attributes">
+          {product.attributes.map((item) => (
+            <AttributeSelector key={item.id} {...{ attribute: item, inStock: product.inStock }} />
+          ))}
+        </div>
 
         <span className="product-options__price-label">PRICE:</span>
         <ProductPrice className="product-options__price-value" prices={product.prices} />
 
-        <button
-          className={`product-options__button 
-            ${notInStock ? "product-options__button--unavailable" : ""}`}
-          type="submit"
-          disabled={notInStock}
-        >
+        <MainButton {...{ disabled: notInStock, type: "submit", primary: true }}>
           ADD TO CART
-        </button>
+        </MainButton>
       </form>
     );
   }

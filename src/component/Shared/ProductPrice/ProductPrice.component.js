@@ -1,6 +1,7 @@
 import { PureComponent } from "react";
 
 import { CurrencyContext } from "../../../store/CurrencyContext";
+import { getProductPrice } from "../../../util/functions";
 
 export class ProductPrice extends PureComponent {
   render() {
@@ -8,10 +9,8 @@ export class ProductPrice extends PureComponent {
       <span className={this.props.className}>
         <CurrencyContext.Consumer>
           {(value) => {
-            const priceIndex = this.props.prices.findIndex(
-              ({ currency: { label } }) => label === value.currency.label
-            );
-            return value.currency.symbol + this.props.prices[priceIndex].amount;
+            const price = getProductPrice(this.props.prices, value.currency);
+            return value.currency.symbol + price;
           }}
         </CurrencyContext.Consumer>
       </span>

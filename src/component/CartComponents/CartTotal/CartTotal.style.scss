@@ -1,0 +1,18 @@
+@import "src/style/variables.scss";
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  width: $product-options-width;
+  margin-top: 12px;
+  margin-bottom: 32px;
+
+  &__text {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+  }
+
+  &__value {
+    font-weight: 700;
+  }
+}
