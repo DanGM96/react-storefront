@@ -6,39 +6,44 @@ import { isSwatch } from "../../../util/functions";
 import "./AttributeSelector.style.scss";
 
 export class AttributeSelector extends PureComponent {
-  selectedAttribute(itemId) {
-    if (!this.props.miniCart) return false;
+  isSelectedValue(itemId) {
+    const selectedAttr = this.props.selectedAttributes;
+    if (!selectedAttr) return false;
 
     const attrId = this.props.attribute.id;
-    return this.props.selectedAttributes[attrId] === itemId;
+    return selectedAttr[attrId] === itemId;
+  }
+
+  isDefaultChecked(itemId, itemIndex) {
+    const isSelectedValue = this.isSelectedValue(itemId);
+    const isIndexZero = itemIndex === 0 && this.props.isEnabled;
+    return isSelectedValue || isIndexZero;
   }
 
   render() {
     const attribute = this.props.attribute;
-    const inStock = this.props.inStock;
-    const miniCart = this.props.miniCart;
-
-    let cssClass = "attribute-selector";
-
-    if (miniCart) {
-      cssClass += "-mini";
-    }
+    const isEnabled = this.props.isEnabled;
+    const className = this.props.className;
 
     return (
-      <div className={cssClass}>
-        <span className={cssClass + "__label"}>{attribute.name}:</span>
-        <div className={cssClass + "__options"}>
+      <div className={"attribute-selector attribute-selector-" + className}>
+        <span className={"attribute-selector__label attribute-selector-" + className + "__label"}>
+          {attribute.name}:
+        </span>
+
+        <div
+          className={"attribute-selector__options attribute-selector-" + className + "__options"}
+        >
           {attribute.items.map((item, index) => {
-            const selected = this.selectedAttribute(item.id);
-            const defaultChecked = index === 0 ? inStock : false;
             const props = {
+              isDefaultChecked: this.isDefaultChecked(item.id, index),
               isSwatch: isSwatch(attribute.type),
+              isEnabled: isEnabled,
+              className: className,
               id: attribute.id,
               item: item,
-              defaultChecked: miniCart ? selected : defaultChecked,
-              enabled: inStock && !miniCart,
-              miniCart: miniCart,
             };
+
             return <AttributeButton key={item.id} {...props} />;
           })}
         </div>

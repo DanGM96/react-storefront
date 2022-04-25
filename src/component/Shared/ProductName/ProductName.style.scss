@@ -1,0 +1,39 @@
+.product-name {
+  &-card {
+    &__brand,
+    &__name {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 29px;
+    }
+  }
+
+  &-big {
+    display: flex;
+    flex-direction: column;
+
+    &__brand {
+      font-weight: 600;
+      font-size: 30px;
+      margin-bottom: 16px;
+    }
+
+    &__name {
+      font-weight: 400;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-mini {
+    display: flex;
+    flex-direction: column;
+
+    &__brand,
+    &__name {
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}

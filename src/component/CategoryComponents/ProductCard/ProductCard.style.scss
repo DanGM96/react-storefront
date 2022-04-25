@@ -3,7 +3,6 @@
 $spacing: 16px;
 
 .product-card {
-  flex: 1;
   flex-direction: column;
   display: flex;
   position: relative;
@@ -13,12 +12,6 @@ $spacing: 16px;
 
   &--unavailable {
     color: $c-text-unavailable;
-  }
-
-  &__price {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 29px;
   }
 
   &:hover {

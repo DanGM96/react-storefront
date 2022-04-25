@@ -1,18 +1,42 @@
 @import "src/style/variables.scss";
 
 .cart-total {
-  display: flex;
-  justify-content: space-between;
-  width: $product-options-width;
-  margin-top: 12px;
-  margin-bottom: 32px;
+  &-big {
+    margin: 16px 0;
+    font-size: 24px;
 
-  &__text {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
+    &__text {
+      font-weight: 500;
+    }
+
+    &__value {
+      font-weight: 700;
+    }
   }
 
-  &__value {
-    font-weight: 700;
+  &-big-tax {
+    font-size: 24px;
+
+    &__value {
+      font-weight: 700;
+    }
+  }
+
+  &-mini {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 12px;
+    margin-bottom: 32px;
+    font-size: 16px;
+
+    &__text {
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+    }
+
+    &__value {
+      font-weight: 700;
+    }
   }
 }

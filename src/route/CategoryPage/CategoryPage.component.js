@@ -1,7 +1,7 @@
 import { PureComponent } from "react";
 
 import ProductListing from "../../component/CategoryComponents/ProductListing/ProductListing.component";
-import { Title } from "../../component/CategoryComponents/Title/Title.component";
+import PageTitle from "../../component/Shared/PageTitle/PageTitle.component";
 
 import CategoryQuery from "../../query/Category.query";
 import history from "../../util/browserHistory";
@@ -55,7 +55,7 @@ export class CategoryPage extends PureComponent {
   render() {
     return (
       <div className="category-page">
-        <Title id={this.state.title} />
+        <PageTitle text={this.state.title} className="category" />
         {this.state.category.products && <ProductListing products={this.state.category.products} />}
       </div>
     );

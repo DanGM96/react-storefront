@@ -1,0 +1,32 @@
+@import "src/style/variables.scss";
+
+.cart-item {
+  display: flex;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &-big {
+    padding: 24px 0;
+    border-top: 1px solid $c-divider;
+    border-bottom: 1px solid $c-divider;
+    margin-bottom: -1px;
+
+    &__info {
+      font-size: 30px;
+    }
+  }
+
+  &-mini {
+    padding: 20px 0;
+
+    &__info {
+      min-width: $mini-cart-column-width;
+      max-width: $mini-cart-column-width;
+      font-size: 16px;
+    }
+  }
+}

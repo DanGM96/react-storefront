@@ -1,0 +1,56 @@
+@import "src/style/variables.scss";
+
+.cart-image {
+  position: relative;
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__arrows {
+    position: absolute;
+    display: flex;
+
+    gap: 8px;
+    right: 16px;
+    bottom: 16px;
+
+    &-left,
+    &-right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: $c-background;
+      background-color: rgba($color: $c-text, $alpha: 0.7);
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      user-select: none;
+
+      & svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    &-left {
+      transform: rotate(90deg);
+    }
+
+    &-right {
+      transform: rotate(270deg);
+    }
+  }
+
+  &-big {
+    min-width: 100px;
+    width: 200px;
+  }
+
+  &-mini {
+    width: $mini-cart-column-width;
+  }
+}

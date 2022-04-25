@@ -1,0 +1,36 @@
+.product-price {
+  display: flex;
+  flex-direction: column;
+
+  &-card {
+    &__value {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 29px;
+    }
+  }
+
+  &-big {
+    &__label {
+      font-family: "Roboto Condensed", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    &__value {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-mini {
+    &__value {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 26px;
+      margin: 4px 0;
+    }
+  }
+}

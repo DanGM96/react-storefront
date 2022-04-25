@@ -25,9 +25,8 @@ export class Gallery extends PureComponent {
   }
 
   render() {
-    const overflow = this.props.gallery.length > 4;
+    const hasOverflow = this.props.gallery.length > 4;
     const props = {
-      overflow: overflow,
       gallery: this.props.gallery,
       handleClick: this.handleClick,
       handleMouseHover: this.handleMouseHover,
@@ -35,7 +34,7 @@ export class Gallery extends PureComponent {
 
     return (
       <div className="gallery">
-        {overflow && this.state.isHovering && <OverflowArrows />}
+        {hasOverflow && this.state.isHovering && <OverflowArrows />}
 
         <Thumbnails {...props} />
 

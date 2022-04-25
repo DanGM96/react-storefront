@@ -6,20 +6,50 @@
   justify-content: space-between;
   align-items: center;
 
+  &__text {
+    font-weight: 500;
+  }
+
   &__buttons {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: $mini-cart-attr-size;
-    height: $mini-cart-attr-size;
+    width: 45px;
+    height: 45px;
     border: 1px solid $c-text;
-    margin: 0 4px;
     cursor: pointer;
+    user-select: none;
 
     & svg {
       width: 40%;
       height: 40%;
+    }
+  }
+
+  &-big {
+    margin: 0 24px;
+
+    &__text {
+      font-size: 24px;
+    }
+
+    &__buttons {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  &-mini {
+    margin: 0 4px;
+
+    &__text {
+      font-size: 16px;
+    }
+
+    &__buttons {
+      width: $attr-width-mini;
+      height: $attr-height-mini;
     }
   }
 }

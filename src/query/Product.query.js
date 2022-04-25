@@ -15,6 +15,7 @@ export class ProductQuery {
       .addField("inStock")
       .addField("gallery", true)
       .addField("description")
+      .addField("category")
       .addField(
         new Field("attributes", true)
           .addField("id")

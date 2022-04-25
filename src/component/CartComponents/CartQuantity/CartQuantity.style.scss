@@ -1,0 +1,23 @@
+.cart-quantity {
+  &-big {
+    margin: 8px 0;
+    font-size: 24px;
+
+    &__value {
+      font-weight: 700;
+    }
+  }
+
+  &-mini {
+    margin-bottom: 12px;
+    font-size: 16px;
+
+    &__text {
+      font-weight: 700;
+    }
+
+    &__value {
+      font-weight: 500;
+    }
+  }
+}

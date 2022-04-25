@@ -1,29 +1,35 @@
 import { PureComponent } from "react";
 
-import CartItems from "../CartItems/CartItems.component";
+import CartItem from "../CartItem/CartItem.component";
 import CartTotal from "../CartTotal/CartTotal.component";
 import MainButton from "../../Shared/MainButton/MainButton.component";
+import CartQuantity from "../CartQuantity/CartQuantity.component";
 
 import history from "../../../util/browserHistory";
 import { getLastSegment } from "../../../util/functions";
 import { CartContext } from "../../../store/CartContext";
 import "./MiniCart.style.scss";
-import MiniCartTitle from "../MiniCartTitle/MiniCartTitle.component";
 
 export class MiniCart extends PureComponent {
+  static contextType = CartContext;
+
   constructor(props) {
     super(props);
     this.goToCart = this.goToCart.bind(this);
+    this.checkOut = this.checkOut.bind(this);
   }
 
   goToCart() {
     const notThere = getLastSegment(history.location.pathname) !== "cart";
-
-    this.props.handleClick();
-
     if (notThere) {
       history.push("/cart");
     }
+    this.props.handleClick();
+  }
+
+  checkOut() {
+    const context = this.context;
+    context.checkOut();
   }
 
   render() {
@@ -32,23 +38,34 @@ export class MiniCart extends PureComponent {
         <CartContext.Consumer>
           {(value) => (
             <>
-              <MiniCartTitle totalQuantity={value.totalQuantity} />
+              <CartQuantity
+                {...{ text: "My Bag", value: value.totalQuantity, className: "mini" }}
+              />
 
-              {value.cart.map((item, index) => {
-                return <CartItems key={index} {...item} />;
-              })}
+              <div className="mini-cart__items">
+                {value.cart.map((item, index) => (
+                  <CartItem key={index} {...{ ...item, className: "mini" }} />
+                ))}
+              </div>
 
-              <CartTotal cart={value.cart} />
+              <CartTotal {...{ cart: value.cart, text: "Total", className: "mini" }} />
             </>
           )}
         </CartContext.Consumer>
 
         <div className="mini-cart__buttons">
-          <MainButton {...{ type: "button", primary: false, onClick: this.goToCart }}>
-            VIEW BAG
-          </MainButton>
+          <MainButton
+            {...{
+              className: "white",
+              fontSize: "14px",
+              text: "VIEW BAG",
+              onClick: this.goToCart,
+            }}
+          />
 
-          <MainButton {...{ type: "button", primary: true }}>CHECK OUT</MainButton>
+          <MainButton
+            {...{ className: "green", fontSize: "14px", text: "CHECK OUT", onClick: this.checkOut }}
+          />
         </div>
       </div>
     );

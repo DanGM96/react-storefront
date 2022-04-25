@@ -6,6 +6,7 @@
   flex-direction: column;
   z-index: $common-z-index;
   top: $common-top;
+  max-height: calc(100% - (2 * $common-top));
 
   color: $c-text;
   font-size: 16px;
@@ -16,18 +17,15 @@
   box-shadow: $common-shadow;
   cursor: default;
 
+  &__items {
+    z-index: $common-z-index;
+    overflow-y: auto;
+  }
+
   &__buttons {
     display: flex;
     gap: 12px;
-    width: $product-options-width;
-  }
-
-  /* Scroll config */
-  max-height: calc(100% - (2 * $common-top));
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
+    min-width: $product-options-width;
+    min-height: 40px;
   }
 }

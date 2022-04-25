@@ -1,13 +1,16 @@
 import { PureComponent } from "react";
+import { Link } from "react-router-dom";
 
 import AttributeSelector from "../../Shared/AttributeSelector/AttributeSelector.component";
 import ProductPrice from "../../Shared/ProductPrice/ProductPrice.component";
 import QuantityManager from "../QuantityManager/QuantityManager.component";
+import ProductName from "../../Shared/ProductName/ProductName.component";
+import CartImage from "../CartImage/CartImage.component";
 
 import { CartContext } from "../../../store/CartContext";
-import "./CartItems.style.scss";
+import "./CartItem.style.scss";
 
-export class CartItems extends PureComponent {
+export class CartItem extends PureComponent {
   static contextType = CartContext;
 
   constructor(props) {
@@ -28,25 +31,27 @@ export class CartItems extends PureComponent {
 
   render() {
     const product = this.props.selectedProduct.product;
+    const className = this.props.className;
     const attributeProps = {
-      inStock: product.inStock,
-      miniCart: true,
+      isEnabled: false,
+      className: className,
       selectedAttributes: this.props.selectedProduct.selectedAttributes,
     };
     const quantityProps = {
+      className: className,
       quantity: this.props.quantity,
       addProduct: this.addProduct,
       removeProduct: this.removeProduct,
     };
 
     return (
-      <div className="cart-items">
-        <div className="cart-items__info">
-          <span className="cart-items__info-title">{product.brand}</span>
+      <div className={"cart-item cart-item-" + className}>
+        <div className={"cart-item__info cart-item-" + className + "__info"}>
+          <Link to={`/${product.category}/${product.id}`}>
+            <ProductName {...{ brand: product.brand, name: product.name, className: className }} />
+          </Link>
 
-          <span className="cart-items__info-title">{product.name}</span>
-
-          <ProductPrice className="cart-items__info-price" prices={product.prices} />
+          <ProductPrice {...{ prices: product.prices, className: className }} />
 
           {product.attributes.map((item) => (
             <AttributeSelector key={item.id} {...{ ...attributeProps, attribute: item }} />
@@ -55,12 +60,10 @@ export class CartItems extends PureComponent {
 
         <QuantityManager {...quantityProps} />
 
-        <div className="cart-items__image">
-          <img className="cart-items__image-img" src={product.gallery[0]} alt=""></img>
-        </div>
+        <CartImage {...{ gallery: product.gallery, className: className }} />
       </div>
     );
   }
 }
 
-export default CartItems;
+export default CartItem;

@@ -7,13 +7,23 @@ import "./QuantityManager.style.scss";
 
 export class QuantityManager extends PureComponent {
   render() {
+    const className = this.props.className;
+
     return (
-      <div className="quantity-manager">
-        <div className="quantity-manager__buttons" onClick={this.props.addProduct}>
+      <div className={"quantity-manager quantity-manager-" + className}>
+        <div
+          className={"quantity-manager__buttons quantity-manager-" + className + "__buttons"}
+          onClick={this.props.addProduct}
+        >
           <PlusSign />
         </div>
-        <div className="quantity-manager__text">{this.props.quantity}</div>
-        <div className="quantity-manager__buttons" onClick={this.props.removeProduct}>
+        <div className={"quantity-manager__text quantity-manager-" + className + "__text"}>
+          {this.props.quantity}
+        </div>
+        <div
+          className={"quantity-manager__buttons quantity-manager-" + className + "__buttons"}
+          onClick={this.props.removeProduct}
+        >
           <MinusSign />
         </div>
       </div>

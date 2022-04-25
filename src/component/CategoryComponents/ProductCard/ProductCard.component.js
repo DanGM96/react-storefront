@@ -2,7 +2,7 @@ import { PureComponent } from "react";
 import { Link } from "react-router-dom";
 
 import ProductImage from "../ProductImage/ProductImage.component";
-import ProductName from "../ProductName/ProductName.component";
+import ProductName from "../../Shared/ProductName/ProductName.component";
 import ProductPrice from "../../Shared/ProductPrice/ProductPrice.component";
 import CartShortcut from "../CartShortcut/CartShortcut.component";
 import ProductShortcut from "../ProductShortcut/ProductShortcut.component";
@@ -37,6 +37,7 @@ export class ProductCard extends PureComponent {
   render() {
     const product = this.props.product;
     const notInStock = !product.inStock;
+    const className = "card";
 
     return (
       <>
@@ -54,9 +55,9 @@ export class ProductCard extends PureComponent {
               </div>
             )}
 
-            <ProductName brand={product.brand} name={product.name} />
+            <ProductName {...{ brand: product.brand, name: product.name, className: className }} />
 
-            <ProductPrice className="product-card__price" prices={product.prices} />
+            <ProductPrice {...{ prices: product.prices, className: className }} />
           </div>
         </Link>
 

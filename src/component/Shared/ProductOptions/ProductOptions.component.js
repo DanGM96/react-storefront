@@ -2,11 +2,11 @@ import { PureComponent } from "react";
 
 import ProductPrice from "../ProductPrice/ProductPrice.component";
 import AttributeSelector from "../AttributeSelector/AttributeSelector.component";
+import MainButton from "../MainButton/MainButton.component";
+import ProductName from "../ProductName/ProductName.component";
 
 import { CartContext } from "../../../store/CartContext";
-
 import "./ProductOptions.style.scss";
-import MainButton from "../MainButton/MainButton.component";
 
 export class ProductOptions extends PureComponent {
   static contextType = CartContext;
@@ -21,34 +21,38 @@ export class ProductOptions extends PureComponent {
     const context = this.context;
     const formData = new FormData(event.target);
     const formObject = Object.fromEntries(formData.entries());
-    const product = {
-      product: this.props.product,
-      selectedAttributes: formObject,
-    };
-    context.addProduct(product);
+    context.addProduct({ ...{ product: this.props.product, selectedAttributes: formObject } });
   }
 
   render() {
     const product = this.props.product;
     const notInStock = !product.inStock;
+    const className = "big";
+    const attributeProps = { isEnabled: product.inStock, className: className };
 
     return (
       <form className="product-options" onSubmit={this.handleSubmit}>
-        <span className="product-options__brand">{product.brand}</span>
-        <span className="product-options__name">{product.name}</span>
+        <ProductName {...{ brand: product.brand, name: product.name, className: className }} />
 
         <div className="product-options__attributes">
           {product.attributes.map((item) => (
-            <AttributeSelector key={item.id} {...{ attribute: item, inStock: product.inStock }} />
+            <AttributeSelector key={item.id} {...{ ...attributeProps, attribute: item }} />
           ))}
         </div>
 
-        <span className="product-options__price-label">PRICE:</span>
-        <ProductPrice className="product-options__price-value" prices={product.prices} />
+        <ProductPrice {...{ prices: product.prices, className: className, withLabel: true }} />
 
-        <MainButton {...{ disabled: notInStock, type: "submit", primary: true }}>
-          ADD TO CART
-        </MainButton>
+        <div className="product-options__button">
+          <MainButton
+            {...{
+              isDisabled: notInStock,
+              type: "submit",
+              className: "green",
+              fontSize: "16px",
+              text: "ADD TO CART",
+            }}
+          />
+        </div>
       </form>
     );
   }

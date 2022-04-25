@@ -1,0 +1,15 @@
+@import "src/style/variables.scss";
+
+.page-title {
+  color: $c-text;
+
+  &-category {
+    font-size: 42px;
+    text-transform: capitalize;
+  }
+
+  &-cart {
+    font-size: 32px;
+    font-weight: 700;
+  }
+}

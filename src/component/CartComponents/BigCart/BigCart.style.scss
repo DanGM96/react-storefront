@@ -1,0 +1,25 @@
+@import "src/style/variables.scss";
+
+.big-cart {
+  display: flex;
+  flex-direction: column;
+
+  color: $c-text;
+  font-size: 16px;
+  line-height: 26px;
+
+  &__items {
+    margin-top: 52px;
+    margin-bottom: 32px;
+  }
+
+  &__values {
+  }
+
+  &__button {
+    display: flex;
+    gap: 12px;
+    width: 280px;
+    height: 40px;
+  }
+}

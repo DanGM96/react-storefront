@@ -1,4 +1,4 @@
-import { Fragment, PureComponent } from "react";
+import { PureComponent } from "react";
 
 import { ReactComponent as Arrow } from "../../../asset/icons/arrow-down.svg";
 import CurrencyList from "../CurrencyList/CurrencyList.component";

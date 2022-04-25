@@ -7,32 +7,12 @@
   width: $product-options-width;
   color: $c-text;
 
-  &__brand {
-    font-size: 30px;
-    font-weight: 600;
-    margin-bottom: 16px;
-  }
-
-  &__name {
-    font-size: 30px;
-    font-weight: 400;
-    margin-bottom: 40px;
-  }
-
   &__attributes {
+    margin-top: 20px;
     margin-bottom: 40px;
   }
 
-  &__price-label {
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-
-  &__price-value {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
+  &__button {
+    height: 50px;
   }
 }

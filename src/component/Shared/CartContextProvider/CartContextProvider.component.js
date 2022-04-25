@@ -10,6 +10,7 @@ export class CartContextProvider extends PureComponent {
       totalQuantity: 0,
       addProduct: this.addProduct.bind(this),
       removeProduct: this.removeProduct.bind(this),
+      checkOut: this.checkOut.bind(this),
     };
   }
 
@@ -56,6 +57,12 @@ export class CartContextProvider extends PureComponent {
 
     this.getTotalQuantity(cartCopy);
     this.updateCart(cartCopy);
+  }
+
+  checkOut() {
+    let emptyCart = [];
+    this.getTotalQuantity(emptyCart);
+    this.updateCart(emptyCart);
   }
 
   componentDidMount() {
