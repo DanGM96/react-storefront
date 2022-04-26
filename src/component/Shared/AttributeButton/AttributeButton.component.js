@@ -1,6 +1,6 @@
 import { PureComponent } from "react";
-import { hexToRgba } from "../../../util/functions";
 
+import { calcFontSize, hexToRgba } from "../../../util/functions";
 import "./AttributeButton.style.scss";
 
 export class AttributeButton extends PureComponent {
@@ -9,14 +9,17 @@ export class AttributeButton extends PureComponent {
     const item = this.props.item;
     const className = this.props.className;
 
-    let value = item.value;
-    let backgroundColor = "";
+    let value;
+    let fontSize;
+    let backgroundColor;
     let classSelected = "attribute-button--selected";
 
     if (this.props.isSwatch) {
-      value = "";
-      backgroundColor = isDisabled ? hexToRgba(item.value, 0.5) : item.value;
       classSelected += "-swatch";
+      backgroundColor = isDisabled ? hexToRgba(item.value, 0.5) : item.value;
+    } else {
+      value = item.value;
+      fontSize = className === "mini" ? calcFontSize(value, 14) : "16px";
     }
 
     return (
@@ -31,7 +34,7 @@ export class AttributeButton extends PureComponent {
 
         <div
           className={`attribute-button attribute-button-${className} ${classSelected}`}
-          style={{ backgroundColor: backgroundColor }}
+          style={{ backgroundColor: backgroundColor, fontSize: fontSize }}
           title={this.props.item.displayValue}
         >
           {value}

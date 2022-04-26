@@ -5,6 +5,7 @@ import Overlay from "../../Shared/Overlay/Overlay.component";
 import MiniCart from "../../CartComponents/MiniCart/MiniCart.component";
 
 import { CartContext } from "../../../store/CartContext";
+import { calcFontSize } from "../../../util/functions";
 import "./CartSelector.style.scss";
 
 export class CartSelector extends PureComponent {
@@ -32,15 +33,21 @@ export class CartSelector extends PureComponent {
             <CartIcon />
 
             <CartContext.Consumer>
-              {(value) =>
-                value.totalQuantity > 0 && (
-                  <div className="cart-selector__group-quantity">
-                    <span className="cart-selector__group-quantity-text">
-                      {value.totalQuantity}
-                    </span>
-                  </div>
-                )
-              }
+              {(value) => {
+                const quantity = value.totalQuantity;
+                return (
+                  quantity > 0 && (
+                    <div className="cart-selector__group-quantity">
+                      <span
+                        className="cart-selector__group-quantity-text"
+                        style={{ fontSize: calcFontSize(quantity, 14) }}
+                      >
+                        {quantity}
+                      </span>
+                    </div>
+                  )
+                );
+              }}
             </CartContext.Consumer>
           </div>
         </div>

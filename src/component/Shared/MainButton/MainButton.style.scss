@@ -11,6 +11,7 @@
   min-height: 100%;
   font-weight: 600;
   cursor: pointer;
+  user-select: none;
 
   &-green {
     color: $c-background;

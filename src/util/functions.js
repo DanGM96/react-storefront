@@ -20,3 +20,12 @@ export function hexToRgba(hex, alpha) {
 
   return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
+
+export function calcFontSize(text, fontSize) {
+  const auxSize = fontSize / 10 + 0.1;
+  const lengthBuff = text.toString().length * auxSize;
+  const fontSizeBuff = fontSize + auxSize;
+  const newFontSize = fontSizeBuff - lengthBuff;
+
+  return `${newFontSize}px`;
+}
