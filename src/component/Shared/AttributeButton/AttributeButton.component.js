@@ -1,4 +1,5 @@
 import { PureComponent } from "react";
+import { hexToRgba } from "../../../util/functions";
 
 import "./AttributeButton.style.scss";
 
@@ -14,7 +15,7 @@ export class AttributeButton extends PureComponent {
 
     if (this.props.isSwatch) {
       value = "";
-      backgroundColor = item.value;
+      backgroundColor = isDisabled ? hexToRgba(item.value, 0.5) : item.value;
       classSelected += "-swatch";
     }
 
