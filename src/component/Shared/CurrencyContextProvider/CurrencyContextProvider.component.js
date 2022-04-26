@@ -18,13 +18,17 @@ export class CurrencyContextProvider extends PureComponent {
   }
 
   componentDidMount() {
-    let currency = JSON.parse(localStorage.getItem("currency"));
-    if (currency === null) {
-      SelectorsQuery.getData().then(({ currencies }) => {
-        currency = currencies[0];
-      });
+    let currency = localStorage.getItem("currency");
+
+    if (currency !== null) {
+      this.updateCurrency(JSON.parse(currency));
+      return;
     }
-    this.updateCurrency(currency);
+
+    SelectorsQuery.getData().then(({ currencies }) => {
+      currency = currencies[0];
+      this.updateCurrency(currency);
+    });
   }
 
   render() {
