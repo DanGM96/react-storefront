@@ -1,6 +1,6 @@
 @import "src/style/variables.scss";
 
-.category {
+.category-button {
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -27,7 +27,7 @@
 
   /* Used to prevent the elements from shifting on font-weight: 600 */
   &::after {
-    content: attr(name) ".";
+    content: attr(name);
     height: 0;
     visibility: hidden;
     overflow: hidden;

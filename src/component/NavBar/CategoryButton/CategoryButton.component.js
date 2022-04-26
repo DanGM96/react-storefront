@@ -1,14 +1,16 @@
 import { PureComponent } from "react";
 import { NavLink } from "react-router-dom";
 
-import "./Category.style.scss";
+import "./CategoryButton.style.scss";
 
-export class Category extends PureComponent {
+export class CategoryButton extends PureComponent {
   render() {
     return (
       <NavLink
         end
-        className={({ isActive }) => `category ${isActive ? "category--selected" : ""}`}
+        className={({ isActive }) =>
+          `category-button ${isActive ? "category-button--selected" : ""}`
+        }
         name={this.props.name}
         to={`/${this.props.name}`}
       >
@@ -18,4 +20,4 @@ export class Category extends PureComponent {
   }
 }
 
-export default Category;
+export default CategoryButton;
