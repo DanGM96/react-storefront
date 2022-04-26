@@ -31,11 +31,17 @@ export class CartSelector extends PureComponent {
           <div className={"cart-selector__group"}>
             <CartIcon />
 
-            <div className="cart-selector__group-quantity">
-              <span className="cart-selector__group-quantity-text">
-                <CartContext.Consumer>{(value) => value.totalQuantity}</CartContext.Consumer>
-              </span>
-            </div>
+            <CartContext.Consumer>
+              {(value) =>
+                value.totalQuantity > 0 && (
+                  <div className="cart-selector__group-quantity">
+                    <span className="cart-selector__group-quantity-text">
+                      {value.totalQuantity}
+                    </span>
+                  </div>
+                )
+              }
+            </CartContext.Consumer>
           </div>
         </div>
 
