@@ -4,7 +4,7 @@ A minimalist website created with [create-react-app](https://github.com/facebook
 
 To run this project you'll need to:
 
-- Install [Node.js](https://nodejs.org/)
+- Install [Node.js](https://nodejs.org/) v14 or higher
 
 - Run [Scandiweb's endpoint](https://github.com/scandiweb/junior-react-endpoint)
 
