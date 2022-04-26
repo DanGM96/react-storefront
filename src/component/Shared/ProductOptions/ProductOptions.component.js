@@ -21,7 +21,7 @@ export class ProductOptions extends PureComponent {
     const context = this.context;
     const formData = new FormData(event.target);
     const formObject = Object.fromEntries(formData.entries());
-    context.addProduct({ ...{ product: this.props.product, selectedAttributes: formObject } });
+    context.addProduct({ product: this.props.product, selectedAttributes: formObject });
   }
 
   render() {

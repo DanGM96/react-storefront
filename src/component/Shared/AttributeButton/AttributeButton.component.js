@@ -8,6 +8,7 @@ export class AttributeButton extends PureComponent {
     const isDisabled = !this.props.isEnabled;
     const item = this.props.item;
     const className = this.props.className;
+    const isDefaultChecked = this.props.isDefaultChecked;
 
     let value;
     let fontSize;
@@ -16,7 +17,7 @@ export class AttributeButton extends PureComponent {
 
     if (this.props.isSwatch) {
       classSelected += "-swatch";
-      backgroundColor = isDisabled ? hexToRgba(item.value, 0.5) : item.value;
+      backgroundColor = isDisabled && !isDefaultChecked ? hexToRgba(item.value, 0.6) : item.value;
     } else {
       value = item.value;
       fontSize = className === "mini" ? calcFontSize(value, 14) : "16px";
@@ -28,7 +29,7 @@ export class AttributeButton extends PureComponent {
           type={"radio"}
           name={isDisabled ? null : this.props.id}
           value={item.id}
-          defaultChecked={this.props.isDefaultChecked}
+          defaultChecked={isDefaultChecked}
           disabled={isDisabled}
         />
 

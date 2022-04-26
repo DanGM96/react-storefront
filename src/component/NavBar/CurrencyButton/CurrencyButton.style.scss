@@ -9,6 +9,10 @@
   cursor: pointer;
   user-select: none;
 
+  &__label {
+    width: 60px;
+  }
+
   &:hover {
     background-color: $c-button-hover;
   }

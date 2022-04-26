@@ -19,9 +19,9 @@ export class CurrencyButton extends PureComponent {
   render() {
     return (
       <div className="currency-button" onClick={this.handleClick}>
-        <span>{this.props.currency.symbol}</span>
+        <span className="currency-button__symbol">{this.props.currency.symbol}</span>
         &nbsp;
-        <span>{this.props.currency.label}</span>
+        <span className="currency-button__label">{this.props.currency.label}</span>
       </div>
     );
   }
