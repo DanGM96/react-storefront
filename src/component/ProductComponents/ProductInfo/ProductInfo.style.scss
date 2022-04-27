@@ -12,5 +12,7 @@
     line-height: 26px;
     color: $c-text;
     margin-top: 40px;
+    max-height: 250px;
+    overflow-y: auto;
   }
 }
