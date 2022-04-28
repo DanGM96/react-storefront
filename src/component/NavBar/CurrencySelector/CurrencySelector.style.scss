@@ -1,6 +1,8 @@
 @import "src/style/variables.scss";
 
 .currency-selector {
+  display: flex;
+  justify-content: flex-end;
   cursor: pointer;
   user-select: none;
 

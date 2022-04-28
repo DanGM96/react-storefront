@@ -1,7 +1,9 @@
+@import "src/style/variables.scss";
+
 .navigation-bar {
   flex-direction: row;
   display: flex;
-  height: 80px;
+  height: $navbar-height;
   margin: 0 100px;
 
   &__logo {

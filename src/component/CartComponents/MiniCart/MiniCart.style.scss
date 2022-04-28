@@ -1,12 +1,12 @@
 @import "src/style/variables.scss";
 
 .mini-cart {
-  display: flex;
   position: absolute;
+  display: flex;
   flex-direction: column;
   z-index: $common-z-index;
-  top: $common-top;
-  max-height: calc(100% - (2 * $common-top));
+  top: $navbar-height;
+  max-height: calc(100% - (2 * $navbar-height));
 
   color: $c-text;
   font-size: 16px;

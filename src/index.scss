@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700&family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500&family=Source+Sans+Pro&display=swap");
 
+@import "src/style/variables.scss";
+
 * {
   box-sizing: border-box;
 }
 
 a {
   text-decoration: none;
+  color: $c-text;
 }
 
 body {

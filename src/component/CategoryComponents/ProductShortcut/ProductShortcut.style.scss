@@ -1,17 +1,19 @@
 @import "src/style/variables.scss";
 
 .product-shortcut {
-  position: fixed;
+  position: absolute;
   display: flex;
-  z-index: $common-z-index;
-  top: 0;
-  height: 100%;
+  justify-content: center;
   align-items: center;
+  z-index: $common-z-index;
+  top: $navbar-height;
+  left: 0;
+  right: 0;
+  bottom: 0;
 
   &__card {
+    position: fixed;
     display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: $c-background;
     padding: 32px 16px;
     z-index: $common-z-index;
