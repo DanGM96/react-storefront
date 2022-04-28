@@ -1,10 +1,9 @@
-import { PureComponent } from "react";
+import { createRef, PureComponent } from "react";
 
 import { ReactComponent as Arrow } from "../../../asset/icons/arrow-down.svg";
+import FocusHandler from "../../Shared/FocusHandler/FocusHandler.component";
 import CurrencyList from "../CurrencyList/CurrencyList.component";
-import Overlay from "../../Shared/Overlay/Overlay.component";
 
-import SelectorsQuery from "../../../query/Selectors.query";
 import { CurrencyContext } from "../../../store/CurrencyContext";
 import "./CurrencySelector.style.scss";
 
@@ -12,49 +11,55 @@ export class CurrencySelector extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      currencies: [],
       isSelected: false,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.openOverlay = this.openOverlay.bind(this);
+    this.closeOverlay = this.closeOverlay.bind(this);
+    this.currencyRef = createRef();
+    this.skip = false;
   }
 
-  componentDidMount() {
-    SelectorsQuery.getData().then(({ currencies }) => {
-      this.setState({
-        currencies: currencies,
-      });
-    });
+  openOverlay() {
+    if (this.skip) {
+      this.skip = false;
+      return;
+    }
+    this.setState({ isSelected: true });
   }
 
-  handleClick() {
-    this.setState((state) => ({ isSelected: !state.isSelected }));
+  closeOverlay(element) {
+    const cartClicked = this.currencyRef.current.contains(element);
+    this.skip = cartClicked;
+
+    this.setState({ isSelected: false });
   }
 
   render() {
     const isSelected = this.state.isSelected;
-    const currencies = this.state.currencies;
 
     return (
-      <>
-        <div className={"currency-selector"} onClick={this.handleClick}>
-          {isSelected && <Overlay />}
+      <div className={"currency-selector"}>
+        <div
+          className={"currency-selector__group"}
+          ref={this.currencyRef}
+          onClick={this.openOverlay}
+        >
+          <span>
+            <CurrencyContext.Consumer>{(value) => value.currency.symbol}</CurrencyContext.Consumer>
+          </span>
 
-          <div className={"currency-selector__group"}>
-            <span>
-              <CurrencyContext.Consumer>
-                {(value) => value.currency.symbol}
-              </CurrencyContext.Consumer>
-            </span>
-
-            <Arrow
-              className={`currency-selector__group-arrow 
+          <Arrow
+            className={`currency-selector__group-arrow 
               ${this.state.isSelected ? "currency-selector__group-arrow--selected" : ""}`}
-            />
-          </div>
+          />
         </div>
 
-        {isSelected && <CurrencyList currencies={currencies} />}
-      </>
+        {isSelected && (
+          <FocusHandler onBlur={this.closeOverlay}>
+            <CurrencyList />
+          </FocusHandler>
+        )}
+      </div>
     );
   }
 }

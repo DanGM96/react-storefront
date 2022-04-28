@@ -13,10 +13,8 @@ export class ProductCard extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      isHovering: false,
       isShortcutOpen: false,
     };
-    this.handleMouseHover = this.handleMouseHover.bind(this);
     this.openShortcut = this.openShortcut.bind(this);
     this.closeShortcut = this.closeShortcut.bind(this);
   }
@@ -30,27 +28,23 @@ export class ProductCard extends PureComponent {
     this.setState({ isShortcutOpen: true });
   }
 
-  handleMouseHover() {
-    this.setState((state) => ({ isHovering: !state.isHovering }));
-  }
-
   render() {
     const product = this.props.product;
     const notInStock = !product.inStock;
     const className = "card";
 
     return (
-      <>
+      <div className="product-card">
         <Link to={`/${product.category}/${product.id}`}>
           <div
-            className={`product-card ${notInStock ? "product-card--unavailable" : ""}`}
-            onMouseEnter={this.handleMouseHover}
-            onMouseLeave={this.handleMouseHover}
+            className={`product-card__group ${
+              notInStock ? "product-card__group--unavailable" : ""
+            }`}
           >
             <ProductImage src={product.gallery[0]} inStock={product.inStock} />
 
-            {this.state.isHovering && product.inStock && (
-              <div onClick={this.openShortcut}>
+            {product.inStock && (
+              <div className="product-card__group-shortcut" onClick={this.openShortcut}>
                 <CartShortcut />
               </div>
             )}
@@ -62,9 +56,9 @@ export class ProductCard extends PureComponent {
         </Link>
 
         {this.state.isShortcutOpen && (
-          <ProductShortcut id={product.id} closeShortcut={this.closeShortcut} />
+          <ProductShortcut id={product.id} onBlur={this.closeShortcut} />
         )}
-      </>
+      </div>
     );
   }
 }

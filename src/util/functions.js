@@ -29,3 +29,25 @@ export function calcFontSize(text, fontSize) {
 
   return `${newFontSize}px`;
 }
+
+export function getScrollBarWidth() {
+  const documentWidth = document.documentElement.clientWidth;
+  const windowWidth = window.innerWidth;
+  const scrollBarWidth = windowWidth - documentWidth;
+
+  return `${scrollBarWidth}px`;
+}
+
+export function toggleOverflow() {
+  const style = document.body.style;
+
+  if (style.overflow === "") {
+    // block scroll
+    style.paddingRight = getScrollBarWidth();
+    style.overflow = "hidden";
+  } else {
+    // allow scroll
+    style.paddingRight = null;
+    style.overflow = null;
+  }
+}

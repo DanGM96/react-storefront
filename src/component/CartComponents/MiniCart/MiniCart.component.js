@@ -24,7 +24,7 @@ export class MiniCart extends PureComponent {
     if (notThere) {
       history.push("/cart");
     }
-    this.props.handleClick();
+    this.props.closeOverlay();
   }
 
   checkOut() {

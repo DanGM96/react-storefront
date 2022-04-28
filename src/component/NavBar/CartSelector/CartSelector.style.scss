@@ -1,18 +1,20 @@
 @import "src/style/variables.scss";
 
 .cart-selector {
+  display: flex;
+  justify-content: flex-end;
   cursor: pointer;
   color: $c-cart;
-
-  & svg {
-    width: 20px;
-    height: 20px;
-  }
 
   &__group {
     display: flex;
     position: relative;
     padding: 10px;
+
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
 
     &-quantity {
       position: absolute;

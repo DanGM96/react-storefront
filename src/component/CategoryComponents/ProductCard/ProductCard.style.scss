@@ -3,23 +3,29 @@
 $spacing: 16px;
 
 .product-card {
-  flex-direction: column;
-  display: flex;
-  position: relative;
+  &__group {
+    flex-direction: column;
+    display: flex;
+    position: relative;
 
-  padding: $spacing;
-  max-width: calc($card-img-width + (2 * $spacing));
+    padding: $spacing;
+    max-width: calc($card-img-width + (2 * $spacing));
 
-  &--unavailable {
-    color: $c-text-unavailable;
+    &-shortcut {
+      display: none;
+    }
+
+    &--unavailable {
+      color: $c-text-unavailable;
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: $common-shadow;
+    }
+
+    &:hover > &-shortcut {
+      display: block;
+    }
   }
-
-  &:hover {
-    cursor: pointer;
-    box-shadow: $common-shadow;
-  }
-}
-
-a {
-  color: $c-text;
 }

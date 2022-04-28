@@ -1,7 +1,7 @@
-import { PureComponent } from "react";
+import { createRef, PureComponent } from "react";
 
 import { ReactComponent as CartIcon } from "../../../asset/icons/cart.svg";
-import Overlay from "../../Shared/Overlay/Overlay.component";
+import FocusHandler from "../../Shared/FocusHandler/FocusHandler.component";
 import MiniCart from "../../CartComponents/MiniCart/MiniCart.component";
 
 import { CartContext } from "../../../store/CartContext";
@@ -14,46 +14,60 @@ export class CartSelector extends PureComponent {
     this.state = {
       isSelected: false,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.openOverlay = this.openOverlay.bind(this);
+    this.closeOverlay = this.closeOverlay.bind(this);
+    this.cartRef = createRef();
+    this.skip = false;
   }
 
-  handleClick() {
-    this.setState((state) => ({ isSelected: !state.isSelected }));
+  openOverlay() {
+    if (this.skip) {
+      this.skip = false;
+      return;
+    }
+    this.setState({ isSelected: true });
+  }
+
+  closeOverlay(element) {
+    const cartClicked = this.cartRef.current.contains(element);
+    this.skip = cartClicked;
+
+    this.setState({ isSelected: false });
   }
 
   render() {
     const isSelected = this.state.isSelected;
 
     return (
-      <>
-        <div className="cart-selector" onClick={this.handleClick}>
-          {isSelected && <Overlay withColor={true} />}
+      <div className="cart-selector">
+        <div className={"cart-selector__group"} ref={this.cartRef} onClick={this.openOverlay}>
+          <CartIcon />
 
-          <div className={"cart-selector__group"}>
-            <CartIcon />
-
-            <CartContext.Consumer>
-              {(value) => {
-                const quantity = value.totalQuantity;
-                return (
-                  quantity > 0 && (
-                    <div className="cart-selector__group-quantity">
-                      <span
-                        className="cart-selector__group-quantity-text"
-                        style={{ fontSize: calcFontSize(quantity, 14) }}
-                      >
-                        {quantity}
-                      </span>
-                    </div>
-                  )
-                );
-              }}
-            </CartContext.Consumer>
-          </div>
+          <CartContext.Consumer>
+            {(value) => {
+              const quantity = value.totalQuantity;
+              return (
+                quantity > 0 && (
+                  <div className="cart-selector__group-quantity">
+                    <span
+                      className="cart-selector__group-quantity-text"
+                      style={{ fontSize: calcFontSize(quantity, 14) }}
+                    >
+                      {quantity}
+                    </span>
+                  </div>
+                )
+              );
+            }}
+          </CartContext.Consumer>
         </div>
 
-        {isSelected && <MiniCart handleClick={this.handleClick} />}
-      </>
+        {isSelected && (
+          <FocusHandler onBlur={this.closeOverlay} withColor={true}>
+            <MiniCart closeOverlay={this.closeOverlay} />
+          </FocusHandler>
+        )}
+      </div>
     );
   }
 }
