@@ -20,8 +20,7 @@ export class CartContextProvider extends PureComponent {
   }
 
   getTotalQuantity(cart) {
-    let totalQuantity = 0;
-    cart.forEach((item) => (totalQuantity += item.quantity));
+    const totalQuantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
     this.setState({ totalQuantity: totalQuantity });
   }
 

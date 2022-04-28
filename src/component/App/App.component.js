@@ -28,23 +28,21 @@ export class App extends PureComponent {
 
   render() {
     return (
-      <>
-        {this.state.firstCategory && (
-          <AppRouter>
-            <CartContextProvider>
-              <CurrencyContextProvider>
-                <NavigationBar />
-                <Routes>
-                  <Route path="/" element={<Home redirect={this.state.firstCategory} />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/:category" element={<CategoryPage />} />
-                  <Route path="/:category/:id" element={<ProductPage />} />
-                </Routes>
-              </CurrencyContextProvider>
-            </CartContextProvider>
-          </AppRouter>
-        )}
-      </>
+      this.state.firstCategory && (
+        <AppRouter>
+          <CartContextProvider>
+            <CurrencyContextProvider>
+              <NavigationBar />
+              <Routes>
+                <Route path="/" element={<Home redirect={this.state.firstCategory} />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/:category" element={<CategoryPage />} />
+                <Route path="/:category/:id" element={<ProductPage />} />
+              </Routes>
+            </CurrencyContextProvider>
+          </CartContextProvider>
+        </AppRouter>
+      )
     );
   }
 }

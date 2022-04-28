@@ -6,7 +6,7 @@ export class MainButton extends PureComponent {
   render() {
     return (
       <button
-        type={this.props.type || "button"}
+        type={this.props.type ?? "button"}
         disabled={this.props.isDisabled}
         onClick={this.props.onClick}
         className={`main-button main-button-${this.props.className}`}

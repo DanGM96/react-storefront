@@ -1,17 +1,15 @@
 import { PureComponent } from "react";
 
 import { CurrencyContext } from "../../../store/CurrencyContext";
-
 import { getProductPrice } from "../../../util/functions";
 import "./CartTotal.style.scss";
 
 export class CartTotal extends PureComponent {
-  getTotalValue(cart, currency, taxRate = this.props.taxRate || 1) {
-    let totalValue = 0;
-    cart.forEach(
-      (item) =>
-        (totalValue +=
-          getProductPrice(item.selectedProduct.product.prices, currency) * item.quantity)
+  getTotalValue(cart, currency, taxRate = this.props.taxRate ?? 1) {
+    const totalValue = cart.reduce(
+      (prev, curr) =>
+        prev + getProductPrice(curr.selectedProduct.product.prices, currency) * curr.quantity,
+      0
     );
     return totalValue * taxRate;
   }
