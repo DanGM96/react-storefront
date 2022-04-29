@@ -1,8 +1,10 @@
 # React Storefront
 
-A minimalist website created with [create-react-app](https://github.com/facebook/create-react-app)
+A dynamic single-page application with GraphQL and a minimalist design
 
-To run this project you'll need to:
+## How to start
+
+To run this project locally you'll need to:
 
 - Install [Node.js](https://nodejs.org/) v14 or higher
 
@@ -15,3 +17,18 @@ To run this project you'll need to:
   `npm start`
 
 - Open http://localhost:3000 to view it in your browser.
+
+
+## Tools
+
+Technologies used in this project:
+
+- [Create React App](https://github.com/facebook/create-react-app)
+
+- [React Router](https://github.com/remix-run/react-router)
+
+- [Sass](https://github.com/sass/dart-sass)
+
+- [Opus](https://github.com/tilework/opus)
+
+- [Interweave](https://github.com/milesj/interweave)
