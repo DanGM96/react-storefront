@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-storefront/static/css/main.ab163c49.css",
-    "main.js": "/react-storefront/static/js/main.ab7ab19b.js",
+    "main.js": "/react-storefront/static/js/main.7ec77700.js",
     "static/js/787.bdba7503.chunk.js": "/react-storefront/static/js/787.bdba7503.chunk.js",
     "static/media/logo.svg": "/react-storefront/static/media/logo.c06a5a2f12977abf2dabceb97135f3be.svg",
     "static/media/cart.svg": "/react-storefront/static/media/cart.5cc8b9c3ae5fb4f05305e329874edce7.svg",
@@ -10,11 +10,11 @@
     "static/media/arrow-down.svg": "/react-storefront/static/media/arrow-down.89806d37b34eb4c6dd697a8b9efc4d29.svg",
     "static/media/minus-sign.svg": "/react-storefront/static/media/minus-sign.dc601e92d758c3e42e9d7d8ed1633705.svg",
     "main.ab163c49.css.map": "/react-storefront/static/css/main.ab163c49.css.map",
-    "main.ab7ab19b.js.map": "/react-storefront/static/js/main.ab7ab19b.js.map",
+    "main.7ec77700.js.map": "/react-storefront/static/js/main.7ec77700.js.map",
     "787.bdba7503.chunk.js.map": "/react-storefront/static/js/787.bdba7503.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab163c49.css",
-    "static/js/main.ab7ab19b.js"
+    "static/js/main.7ec77700.js"
   ]
 }
