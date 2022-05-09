@@ -1,6 +1,8 @@
 # React Storefront
 
-A dynamic single-page application with GraphQL and a minimalist design
+A dynamic single-page application with GraphQL and a minimalist design.
+
+You can checkout a static version of this project hosted on GitHub Pages using [this link](https://dangm96.github.io/react-storefront/).
 
 ## How to start
 
