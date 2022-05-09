@@ -20,9 +20,9 @@ export class MiniCart extends PureComponent {
   }
 
   goToCart() {
-    const notThere = getLastSegment(history.location.pathname) !== "cart";
-    if (notThere) {
-      history.push("/cart");
+    const atCartPage = getLastSegment(history.location.pathname) === "cart";
+    if (!atCartPage) {
+      history.push(process.env.PUBLIC_URL + "/cart");
     }
     this.props.closeOverlay();
   }
