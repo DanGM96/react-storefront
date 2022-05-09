@@ -60,5 +60,12 @@ export class StaticCategory extends CategoryQuery {
   }
 }
 
-export default StaticCategory;
-// export default CategoryQuery; // graphql
+function categoryFactory() {
+  if (process.env.REACT_APP_ENV === "prod") {
+    return StaticCategory; // static
+  } else {
+    return CategoryQuery; // graphql
+  }
+}
+
+export default categoryFactory();

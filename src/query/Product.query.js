@@ -61,5 +61,12 @@ export class StaticProduct extends ProductQuery {
   }
 }
 
-export default StaticProduct;
-// export default ProductQuery; // graphql
+function productFactory() {
+  if (process.env.REACT_APP_ENV === "prod") {
+    return StaticProduct; // static
+  } else {
+    return ProductQuery; // graphql
+  }
+}
+
+export default productFactory();

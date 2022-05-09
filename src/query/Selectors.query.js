@@ -44,5 +44,12 @@ export class StaticSelectors extends SelectorsQuery {
   }
 }
 
-export default new StaticSelectors();
-// export default new SelectorsQuery(); // graphql
+function selectorsFactory() {
+  if (process.env.REACT_APP_ENV === "prod") {
+    return new StaticSelectors(); // static
+  } else {
+    return new SelectorsQuery(); // graphql
+  }
+}
+
+export default selectorsFactory();

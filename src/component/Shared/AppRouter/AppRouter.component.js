@@ -31,6 +31,7 @@ export class AppRouter extends PureComponent {
     return (
       <Router
         {...this.props}
+        basename={process.env.PUBLIC_URL}
         location={this.state.location}
         navigationType={this.state.action}
         navigator={history}
