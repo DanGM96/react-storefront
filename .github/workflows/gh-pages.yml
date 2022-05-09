@@ -10,8 +10,8 @@ jobs:
       - name: Install and Build
         run: npm install && npm run build
 
-      - name: Copy index.html to 404.html and to cart.html
-        run: cp build/index.html build/404.html && cp build/index.html build/cart.html
+      - name: Copy index.html to 404.html
+        run: cp build/index.html build/404.html
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
