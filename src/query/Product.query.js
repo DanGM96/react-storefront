@@ -1,5 +1,6 @@
 import { Query, Field } from "@tilework/opus";
 import { queryResponse } from "../util/query";
+import graphqlData from "../asset/data/graphql-data.json"; // for github-pages (static)
 
 export class ProductQuery {
   constructor(id) {
@@ -42,4 +43,23 @@ export class ProductQuery {
   }
 }
 
-export default ProductQuery;
+// for github-pages (static)
+export class StaticProduct extends ProductQuery {
+  productQuery(id) {
+    const products = graphqlData.categories[0].products;
+    let product = {};
+
+    products.forEach((productsItem) => {
+      if (productsItem.id === id) product = productsItem;
+    });
+
+    return { product };
+  }
+
+  storeData(id) {
+    this.data = Promise.resolve(this.productQuery(id));
+  }
+}
+
+export default StaticProduct;
+// export default ProductQuery; // graphql

@@ -1,5 +1,6 @@
 import { Query, Field } from "@tilework/opus";
 import { queryResponse } from "../util/query";
+import graphqlData from "../asset/data/graphql-data.json"; // for github-pages (static)
 
 export class CategoryQuery {
   constructor(title) {
@@ -33,4 +34,31 @@ export class CategoryQuery {
   }
 }
 
-export default CategoryQuery;
+// for github-pages (static)
+export class StaticCategory extends CategoryQuery {
+  mapProducts(categoryItem) {
+    const products = categoryItem.products.map((productItem) => {
+      const { description, attributes, ...product } = productItem;
+      return product;
+    });
+
+    return { products };
+  }
+
+  categoryQuery(title) {
+    let category = {};
+
+    graphqlData.categories.forEach((categoryItem) => {
+      if (categoryItem.name === title) category = this.mapProducts(categoryItem);
+    });
+
+    return { category };
+  }
+
+  storeData(title) {
+    this.data = Promise.resolve(this.categoryQuery(title));
+  }
+}
+
+export default StaticCategory;
+// export default CategoryQuery; // graphql
