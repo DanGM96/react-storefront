@@ -10,7 +10,7 @@ To run this project locally you'll need to:
 
 - Install [Node.js](https://nodejs.org/) v14 or higher
 
-- Run [Scandiweb's endpoint](https://github.com/scandiweb/junior-react-endpoint)
+- Run this [GraphQL endpoint](https://github.com/DanGM96/graphql-endpoint)
 
 - Within the root folder, setup this code with:
 
